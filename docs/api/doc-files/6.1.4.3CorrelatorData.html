@@ -1,0 +1,116 @@
+<!doctype html public "-//w3c//dtd html 4.0 transitional//en">
+<html>
+<head>
+   <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+   <meta name="Author" content="Sandy Burke Slowey">
+   <meta name="GENERATOR" content="Mozilla/4.76 [en] (Windows NT 5.0; U) [Netscape]">
+   <title>6.1.4.3 Correlator Data</title>
+</head>
+<body>
+<i>This description is taken from ECMA-269, Section
+6.1.4.3, "Correlator Data".</i>
+<h4>
+6.1.4.3 Correlator Data</h4>
+Correlator Data is computing function specific data which has been attached
+to a call that a computing function is controlling or observing. This information,
+for example, might be a key to a database entry, an application command
+sequence, file name, etc. Once Correlator Data is associated with a call,
+it remains with the call for its entire duration (at least one CSTA Device
+is actively involved in the call), or until the computing function overwrites
+the data with new data. In order to remove data, the computing function
+shall overwrite the existing data with null data. Correlator Data enters
+the switching sub-domain in two ways:
+<ul>
+<li>
+A computing function provides Correlator Data on a service request (e.g.
+Call Control and Call Associated services).</li>
+
+<li>
+Correlator Data arrives from an external network connection with a call
+(for example, Correlator Data may be used as a key to pop a screen for
+the call). This Standard defines one possible mechanism for delivering
+Correlator Data through an external network. This mechanism is described
+in Annex B.</li>
+</ul>
+Permitting a computing function to associate its own information with a
+call allows multiple computing functions to share data on calls which they
+are all controlling or observing. This feature is useful when calls are
+moving from one computing function to another in a distributed computer
+network or from one switching sub-domain to another. For more information
+on Correlator Data, refer to <a href="12.2.10CorrelatorData.html">12.2.10CorrelatorData</a>.
+<p>Correlator Data is provided by the Computing Function and associated
+with the call for its entire duration or until overwritten with new data.
+This data survives Conference and Transfer and can be provided on various
+events. An application may remove the Correlator Data by overwriting existing
+data with null data.
+<p>When Correlator Data is associated with a call, call events that indicate
+that a CSTA Device has become part of a call (such as Delivered, Established
+and Queued events, for example) shall include the Correlator Data (if this
+parameter is supported in the event being reported). Subsequent call events
+also may contain the Correlator Data.
+<p>Note that “null Correlator Data” means Correlator Data information with
+zero length.
+<p>When a consultation call is transferred or conferenced and null or non-null
+Correlator Data is associated with the secondary call, the Correlator Data
+in the resulting call shall always be the same Correlator Data that was
+associated with the secondary call (even if only the primary call had non-null
+Correlator Data). In that case the Correlator Data (if any) associated
+with the primary call is discarded. If the secondary call contains no Correlator
+Data, the Correlator Data associated with the resulting call is that which
+was associated with the primary call.
+<center>
+<p>Table 6-4 Inheritance rules for Correlator Data in Conference and Transfer</center>
+
+<center><table BORDER COLS=4 WIDTH="94%" >
+<tr>
+<td ROWSPAN="2">&nbsp;&nbsp;&nbsp; Secondary Call</td>
+
+<td COLSPAN="3">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Primary Call</td>
+</tr>
+
+<tr>
+<td>No Correlator Data</td>
+
+<td>Null Correlator Data</td>
+
+<td>&nbsp;Correlator Data 1</td>
+</tr>
+
+<tr>
+<td>No Correlator Data</td>
+
+<td>No Correlator Data</td>
+
+<td>Null Correlator Data</td>
+
+<td>Correlator Data 1</td>
+</tr>
+
+<tr>
+<td>Null Correlator Data</td>
+
+<td>Null Correlator Data</td>
+
+<td>Null Correlator Data</td>
+
+<td>Null Correlator Data</td>
+</tr>
+
+<tr>
+<td>Correlator Data 2</td>
+
+<td>Correlator Data 2</td>
+
+<td>Correlator Data 2</td>
+
+<td>Correlator Data 2</td>
+</tr>
+</table></center>
+
+<p>When Correlator Data is associated with a call via the Associate Data
+service, the Call Information event is provided by the switching function.
+If the data is changed by any other service, the switching function does
+not provide the Call Information event.
+</body>
+</html>

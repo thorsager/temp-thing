@@ -1,0 +1,25 @@
+<h2>G.729 Wave File Format</h2>
+All digit audio files used in Communication Manager API are in
+<a href="http://www.sonicspot.com/guide/wavefiles.html">
+standard Wave file format</a>,
+including these audio files:
+<ul><li>Files created using <tt>VoiceUnitServices.recordMessage()</tt>
+		</li>
+	<li>Files played to a media stream using <tt>VoiceUnitServices.playMessage()
+		</tt></li>
+	<li>Files used to dub over a recording using
+		<tt>ExtendedVoiceUnitServices.startDubbing()</tt></li>
+</ul>
+<p />
+However, since the Wave file standard does not accomodate
+G.729 encoding, some <i>non-standard</i> field values are used
+in the format chunk of the Wave file's RIFF structure
+to distinguish those encoded with G.729:
+<ul><li>The compression code value is 131 (0x0083). </li>
+ <li>The block align value is 10 (0x000A). </li>
+ <li>The bits per sample value is 1 (0x0001). </li>
+</ul>
+<p />
+An external G.729 converter is
+required to convert a G.729 Wave file into a standard Wave file format
+that can be played.

@@ -1,0 +1,57 @@
+<!doctype html public "-//w3c//dtd html 4.0 transitional//en">
+<html>
+<head>
+   <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+   <meta name="Author" content="Sandy Burke Slowey">
+   <meta name="GENERATOR" content="Mozilla/4.76 [en] (Windows NT 5.0; U) [Netscape]">
+   <title>Management of Dynamically-Assigned Identifiers</title>
+</head>
+<body>
+<i>This description comes
+from ECMA-269.</i>
+<h3>
+6.1.8 Management of Dynamically-Assigned Identifiers</h3>
+Management of dynamically-assigned Device Identifiers and Call Identifiers
+is provided through management of
+<br>Connection Identifiers. This ensures that an identifier whose meaning
+is dependent on another identifier is always
+<br>provided in the proper context (i.e., with the other identifier needed
+to resolve its meaning). For example if a Call
+<br>Identifier is given relative to a device, then giving the Connection
+Identifier ensures that the Call Identifier is
+<br>provided with its reference - the Device Identifier. Management of
+Connection Identifiers shall be provided as
+<br>follows.
+<p>Connection Identifiers shall be provided when either a new Call is created
+or a new device becomes involved in a
+<br>call. When a call is made a Connection Identifier shall be provided.
+A Connection Identifier shall be provided in
+<br>Event Reports that pertain to a call. When a device becomes involved
+in a call, the Connection Identifier shall be
+<br>provided in the Event Reports that occur at that device.
+<p>If a call changes its Call Identifier when a Conference or Transfer
+occurs, Connection Identifiers shall be provided
+<br>to link the old Call Identifier to the new Call Identifier. Similarly,
+if a Device Identifier is changed, new Connection
+<br>Identifiers shall be provided for the devices in the call.
+<p>Management of identifiers shall be provided via parameters included
+in Service acknowledgements and Event
+<br>Reports.
+<p>Identifiers shall cease to be valid when their context vanishes. If
+a call ends, its Call Identifier is no longer valid to
+<br>refer to that call. Similarly, if a device is removed from service
+or from a call, its dynamically-assigned Device
+<br>Identifier shall become invalid.
+<p>Identifiers can be reused. Once an identifier has lost its context it
+may be re-used to identify another object. It is
+<br>recommended that implementations not re-use identifiers immediately.
+<p>Individual Call and Device Identifiers are not guaranteed to be globally
+unique. CSTA requires that the combination
+<br>of Call and Device Identifier be unique within a CSTA switching sub-domain.
+To accomplish this, either the Call
+<br>Identifier, or the Device Identifier (or both) shall be unique. In
+many cases the Connection Identifier requires both
+<br>the Call and Device Identifiers to uniquely refer to Connections in
+a call.
+</body>
+</html>

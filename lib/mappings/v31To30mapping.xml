@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mapping>
+
+    <!-- XSD changes between 4.0 and 3.1 releases, in which CSTA was changed to Ed 3 from Ed 2 -->
+    <include href="v40To31mapping.xml" />
+
+    <!-- 3.0 does not have encryption, drop any encrpytion related element -->
+    <class name="com.avaya.csta.binding.RegisterTerminalResponse" auto-complete="false">
+        <description>Default mapping for class com.avaya.csta.binding.RegisterTerminalResponse</description>
+        <map-to xml="RegisterTerminalResponse" ns-uri="http://www.avaya.com/csta"/>
+        <field name="signalingEncryption" type="string" required="false"
+            direct="false" transient="true">
+            <bind-xml name="signaling-encryption" node="element" reference="false"/>
+        </field>
+        <field name="device" type="ch.ecma.csta.binding.SubjectDeviceID"
+            required="false" direct="false" transient="false">
+            <bind-xml name="device" node="element" reference="false"/>
+        </field>
+        <field name="code" type="integer" required="false"
+            direct="false" transient="false">
+            <bind-xml name="code" node="element" reference="false"/>
+        </field>
+        <field name="reason" type="string" required="false"
+            direct="false" transient="false">
+            <bind-xml name="reason" node="element" reference="false"/>
+        </field>
+    </class>
+    <class name="com.avaya.csta.binding.MediaStartEvent" auto-complete="false">
+        <description>Default mapping for class com.avaya.csta.binding.MediaStartEvent</description>
+        <map-to xml="MediaStartEvent" ns-uri="http://www.avaya.com/csta"/>
+        <field name="connection"
+            type="ch.ecma.csta.binding.ConnectionID" required="false"
+            direct="false" transient="false">
+            <bind-xml name="connection" node="element" reference="false"/>
+        </field>
+        <field name="rtpAddress" type="com.avaya.csta.binding.IPAddress"
+            required="false" direct="false" transient="false">
+            <bind-xml name="rtpAddress" node="element" reference="false"/>
+        </field>
+        <field name="monitorCrossRefID" type="string" required="false"
+            direct="false" transient="false">
+            <bind-xml name="monitorCrossRefID" node="element" reference="false"/>
+        </field>
+        <field name="packetSize" type="integer" required="false"
+            direct="false" transient="false">
+            <bind-xml name="packetSize" node="element" reference="false"/>
+        </field>
+        <field name="codec" type="string" required="false"
+            direct="false" transient="false">
+            <bind-xml name="codec" node="element" reference="false"/>
+        </field>
+        <field name="encryption"
+            type="com.avaya.csta.binding.Encryption" required="false"
+            direct="false" transient="true">
+            <bind-xml name="encryption" node="element" reference="false"/>
+        </field>
+        <field name="rtcpAddress"
+            type="com.avaya.csta.binding.IPAddress" required="false"
+            direct="false" transient="false">
+            <bind-xml name="rtcpAddress" node="element" reference="false"/>
+        </field>
+    </class>
+    <class name="com.avaya.csta.binding.Encryption" auto-complete="false">
+        <description>Default mapping for class com.avaya.csta.binding.Encryption</description>
+        <map-to xml="Encryption" ns-uri="http://www.avaya.com/csta"/>
+        <field name="transmitKey" type="string" required="false"
+            direct="false" transient="false">
+            <bind-xml name="key" node="element" reference="false"/>
+        </field>
+        <field name="receiveKey" type="string" required="false"
+            direct="false" transient="true">
+            <bind-xml name="receive-key" node="element" reference="false"/>
+        </field>
+        <field name="payloadType" type="integer" required="false"
+            direct="false" transient="true">
+            <bind-xml name="payload-type" node="element" reference="false"/>
+        </field>
+        <field name="protocol" type="string" required="false"
+            direct="false" transient="false">
+            <bind-xml name="protocol" node="element" reference="false"/>
+        </field>
+    </class>
+
+</mapping>

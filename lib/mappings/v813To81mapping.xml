@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mapping>
+
+    <!-- XSD changes between 8.1.3 and X.X.X release -->
+    <!-- <include href="xxxxxxxxxx.xml" /> -->
+
+    <!-- 8.1 does not have ServiceObserveState event, drop the related field -->
+    <class name="com.avaya.csta.binding.CallControlPrivateEvents" auto-complete="false">
+        <description>Default mapping for class com.avaya.csta.binding.CallControlPrivateEvents</description>
+        <map-to xml="CallControlPrivateEvents" ns-uri="http://www.avaya.com/csta"/>
+        <field name="enteredDigits" type="boolean" required="false" direct="false" transient="false">
+            <bind-xml name="enteredDigits" node="element" reference="false"/>
+        </field>
+        <field name="serviceObserveState" type="boolean" required="false" direct="false" transient="true">
+            <bind-xml name="serviceObserveState" node="element" reference="false"/>
+        </field>
+    </class>
+
+</mapping>

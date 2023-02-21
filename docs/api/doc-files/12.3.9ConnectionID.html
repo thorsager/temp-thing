@@ -1,0 +1,118 @@
+<!doctype html public "-//w3c//dtd html 4.0 transitional//en">
+<html>
+<head>
+   <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+   <meta name="Author" content="Sandy Burke Slowey">
+   <meta name="GENERATOR" content="Mozilla/4.76 [en] (Windows NT 5.0; U) [Netscape]">
+   <title>12.3.9 ConnectionID</title>
+</head>
+<body>
+<i>This description is taken from ECMA-269, Section
+12.3.9, "ConnectionID".</i>
+<h3>
+12.3.9 ConnectionID</h3>
+The ConnectionID parameter type describes a device’s connection in a given
+call.
+<p><b>Format</b>
+The ConnectionID is always comprised of the following parameters (except
+in special cases which are described
+below):
+1.&nbsp;&nbsp;&nbsp; callID (M) Octet String - An identifier used by
+the switching function to represent a valid call. The maximum length
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; supported by the switching function
+is provided via the capabilities exchange services. These IDs are created
+by the
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; switching function and are globally
+unique among all calls within the switching sub-domain.
+2.&nbsp;&nbsp;&nbsp; deviceID (M) DeviceID - An identifier which is
+used to represent a device in the switching sub-domain. This identifier
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; can be either one of the two following
+values:
+&nbsp;
+<blockquote>• Static - This type of identifier is defined in ECMA 269,
+section 6.1.3, “Device”.
+<p>• Dynamic - This type of identifier is one that is created by the switching
+function for a device when it
+enters into a call and shall remain constant for the life of the device’s
+participation in the call (i.e., the
+creation of a connection identifier for the device). As soon as the
+device leaves the call, the identifier
+becomes invalid. The use of a dynamic identifier by a switching function
+is determined when the
+switching function does not have a static identifier for the device
+or the identifier can not uniquely identify
+the device in a call. This type of identifier is an octet string. It
+is never a dialable number and can never be
+used outside the context of the connection identifier. This type of
+identifier is not directly related to a
+device element but is strictly used to make the connection identifier
+unique. Refer to ECMA 269, section 6.1.8, “Management of Dynamically-Assigned
+Identifiers”, for more information.</blockquote>
+<b>Functional Requirements</b>
+1. The computing function shall not fabricate its own Connection IDs.
+This will lead to unpredictable results.
+<p>2. The Connection IDs in events and service acknowledgements are always
+allocated by the switching function.
+<p>3. Computing functions can extract Device IDs from Connection IDs and
+use them on services that have Device
+ID parameters only if the Device ID extracted is a static Device ID
+that the switching function accepts.
+Otherwise, the Device ID cannot be used.
+<p>4. Computing functions shall extract Call IDs from Connection IDs, provided
+by the switching function, to
+correlate event reports associated with devices that are connected
+together in a call.
+<p>5. The computing function will always receive an event to indicate the
+termination of a Connection ID if the
+appropriate monitor is started. Refer to the individual services and
+events to better understand the meaning of
+individual events with respect to connection states.
+<p>6. If the computing function issues a service with a Connection ID that
+cannot be controlled by the switching
+function, the service will be rejected with a negative acknowledgement.
+<p>7. Connection IDs used as parameters can only have three formats:
+<ul>
+<li>
+A complete Connection ID (i.e., call ID and device ID). This extracted
+from either events received by the computing function or positive acknowledgements
+received as a result of services issued. When supplied as a parameter,
+the Connection ID will be validated by the switching function with respect
+to the service being issued. If this Connection ID is not valid, the service
+request will be rejected with a negative acknowledgement.</li>
+
+<li>
+A DeviceID only Connection ID. If a service has more than one Connection
+ID parameter, the switching function supports this type of Connection ID,
+and the computing function wants to use this type of Connection ID, then
+all Connection ID parameters in the service shall be of this type. If this
+type of Connection ID is used as the Connection ID parameter for a service,
+then rules documented in the services sections will determine whether it
+is accepted or not by the switching function. If this type of Connection
+ID is not accepted, then the service will be rejected with a negative acknowledgement.</li>
+
+<li>
+A Call ID only Connection ID. In events, this format can only be used for
+the Call Cleared and Failed event. If this format is used for any service
+other than Clear Call, Monitor Start, or Snapshot Call, it will be rejected
+with a negative acknowledgement.</li>
+</ul>
+8. If a call changes its Call ID when a Conference or Transfer occurs,
+Connection IDs shall be provided to link
+the old Call IDs to the new Call IDs. When this occurs, the event will
+contain a list of originally known
+Connection IDs of devices that are still in the call along with the
+new replacement Connection IDs. When the
+new Connection IDs are created in such cases, new dynamic Device IDs
+may also be used to create the
+Connection IDs.
+<p>9. Connection IDs that come from the switching function (events and
+positive acknowledgements to services)
+will always contain both the Call ID and Device ID portions (see item
+7a above) except for the Call Cleared
+and Failed events that may also contain only a valid call ID in the
+connection ID (see item 7c above).
+<p>10. The computing function should never assume the reuse of callIDs,
+although some switching functions may
+reuse one or the other.
+</body>
+</html>

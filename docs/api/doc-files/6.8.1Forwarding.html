@@ -1,0 +1,190 @@
+<!doctype html public "-//w3c//dtd html 4.0 transitional//en">
+<html>
+<head>
+   <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+   <meta name="Author" content="Sandy Burke Slowey">
+   <meta name="GENERATOR" content="Mozilla/4.76 [en] (Windows NT 5.0; U) [Netscape]">
+   <title>6.8.1 Forwarding</title>
+</head>
+<body>
+<i>This description is taken from ECMA-269, Section 6.8.1,
+"Forwarding".</i>
+<h3>
+6.8.1 Forwarding</h3>
+The forwarding feature is a trigger at a device that will redirect incoming
+calls to another device based on a specific condition. The following are
+the types of conditions that would trigger the redirection, or forwarding
+of the incoming call:
+<ul>
+<li>
+<i>Immediate</i> - This condition indicates that if a call arrives at a
+device, it is immediately redirected to another device.</li>
+
+<li>
+<i>Busy</i> - This condition indicates that if a call arrives at a device,
+and the device is busy with another call, then the incoming call will be
+redirected to another device.</li>
+
+<li>
+<i>No Answer </i>- This condition indicates that if a call arrives at a
+device, and the call is not answered within a certain number of rings or
+within a specific amount of time, then the incoming call will be redirected
+to another device.</li>
+
+<li>
+<i>Do Not Disturb (DND)</i> - This condition indicates that if a call arrives
+at a device, and the device has the Do Not Disturb feature active at the
+device, then the incoming call will be redirected to another device. Note
+that the Do Not Disturb feature does not necessarily imply that incoming
+calls are forwarded.</li>
+
+<li>
+<i>Type of Call Origination</i> - This condition indicates that if a call
+arrives at a device, and the originating device is a specific class (i.e.,
+external, such as a device that is outside the switching sub-domain, or
+internal, such as a device that is within the switching sub-domain), then
+the incoming call will be redirected to another device. This condition
+can be used in combination with the others to create a compound condition.
+For example, if busy with another call and the calling device is outside
+the switching sub-domain, then redirect the call to another device.</li>
+</ul>
+Switching functions may support one or both of the following levels of
+forwarding settings:
+<ul>
+<li>
+switching function default settings</li>
+
+<li>
+User specified settings</li>
+</ul>
+<i>Switching function default settings</i> are a single set of forwarding-type/forward-destination
+combinations that can be activated and deactivated as a set. The set includes
+all of the CSTA forwarding-types defined and the forwarddestinations for
+each type. Activation, deactivation, or changes to the forward-destinations
+are not normally possible by users.
+<p><i>User specified settings</i> are individual forwarding-type/forward-destination
+combinations that can be activated or deactivated one at a time. User specified
+settings supersede switching function default settings during activation,
+deactivation, and when forwarding occurs.
+<p>A switching function that supports switching function default settings
+may also support user specified settings. Switching function default settings
+are used for forwarding to a standard destination such as voice mail or
+an attendant. User specified settings may be used to override the default
+settings to forward calls temporarily to another office, for example.
+<p>A user specified forwarding type supersedes the same switching function
+default forwarding type when forwarding occurs. For example, a user specified
+type of “No Answer” and its corresponding forward destination supersede
+a switching function default type of “No Answer”. Note that this rule may
+not apply to types that are not alike. For example, a user specified type
+of “No Answer” (a delayed type of forwarding) does not supersede a switching
+function default type of “Immediate”, although a user specified type of
+“Immediate” does supersede a switching function default type of “No Answer”
+(since “No Answer” is a delayed type of forwarding).
+<p>The forwarding feature has service requests and events to control and
+observe the activation and deactivation of the forwarding triggers at the
+device (i.e., Get Forward, Set Forward, Forwarding). These service requests
+and events are documented in Clause 22, “Logical Device Features”, beginning
+on page 456, and do not actually forward the incoming call when it arrives
+at the device, but instead sets up the trigger to cause the switching function
+to perform the redirecting of the call. The computing function should use
+the capabilities exchange services to determine which of these services
+and events the switching function supports.
+<p>The computing function should use the capabilities exchange services
+to determine which of the following levels of forwarding settings are supported
+by the switching function:
+<ul>
+<li>
+Switching function default settings (set of forwarding types and forward
+destinations).</li>
+
+<li>
+User specified settings.</li>
+
+<ul>
+<li>
+Default forwarding type.</li>
+
+<li>
+Default forward destination.</li>
+</ul>
+</ul>
+Switching function default settings may be activated or deactivated manually
+at the device, or by providing neither the forwarding type nor forward
+destination (forward DN) in Set Forward service requests.
+<p>User specified settings may be activated or deactivated manually at
+the device or by providing the forwarding type and/or the forward destination
+(forward DN) in the Set Forward service request. If the forwarding type
+is not specified and the forward destination is specified, the switching
+function uses a default forwarding type. Likewise, if the forwarding type
+is specified and the forward destination is not specified, the switching
+function uses a default forward destination.
+<p>The computing function is informed that default settings are being activated
+in the Get Forward positive acknowledgement and the Forwarding event.
+<p>When the call is immediately redirected as a result of the forwarding
+feature, there are two basic event sequence models to indicate that the
+call has been forwarded. The following are the event sequence model definitions
+(Note that the computing function should use the capabilities exchange
+services to determine which of model or models that the switching function
+supports.):
+<ul>
+<li>
+<i>Forwarding Is Triggered before the Call Is Delivered to the Device</i>
+- - There is basically no event sequence</li>
+
+<br>associated with this condition. The only characteristic associated
+with this event sequence is:
+<ul>
+<li>
+The first event associated with the delivery of the call to the new device
+will have an appropriate forwarding event cause. If the RedirectionDeviceID
+parameter is available in this event, it will be provided based upon the
+definition of the Call Control event and&nbsp; <a href="12.3.24RedirectionDeviceID.html">RedirectionDeviceID</a>&nbsp;
+(see <a href="6.8.6TrackingaDivertedCall.html">Tracking a Diverted Call</a>
+for more information on event sequences for forwarded calls)</li>
+</ul>
+If the call is forwarded multiple times under the same condition (e.g.,
+forwarded from device 1 to device 2 which is forwarded to device 3), then
+the information indicating that the call was forwarded will only be the
+information from the last device the call was forwarded from (e.g., device
+2). As a result, the computing function will only see that the call has
+been forwarded one time.
+<li>
+<i>Forwarding Is Triggered after the Call Is Delivered to the Device</i>
+- The event sequence is a Diverted event followed by the first event associated
+with the delivery of the call to the new device. The characteristics associated
+with this event sequence are:</li>
+
+<ul>
+<li>
+Depending on the capabilities of the switching function, an Offered and/or
+Delivered event may or may not flow as a result of presenting the to-be-forwarded
+call to the device from which it will be diverted.</li>
+
+<li>
+The Diverted event will have an appropriate forwarding event cause. (Note
+that he reporting of this event is dependent on the capabilities of the
+switching function.)</li>
+
+<li>
+The first event associated with the delivery of the call to the new device
+will have an appropriate forwarding event cause. If the RedirectionDeviceID
+parameter is available in this event, it will be provided based upon the
+definition of the Call Control event and&nbsp; <a href="12.3.24RedirectionDeviceID.html">RedirectionDeviceID</a>&nbsp;
+(see <a href="6.8.6TrackingaDivertedCall.html">Tracking a Diverted Call</a>
+for more information on event sequences for forwarded calls)</li>
+</ul>
+
+<li>
+If the call is forwarded multiple times under the same condition (e.g.,
+forwarded from device 1 to device 2 which is forwarded to device 3), then
+the information indicating that the call was forwarded will be available
+each time the call is forwarded (e.g., device 1, device 2). This is possible
+because the call is actually delivered to the device before it is forward
+to another.</li>
+</ul>
+If the call is forwarded multiple times with a mixture of forwarding conditions
+(i.e., event sequence types), then the information indicating that the
+call was forwarded will be a mixture of the event sequences depending on
+the order of the forwarding conditions.
+</body>
+</html>

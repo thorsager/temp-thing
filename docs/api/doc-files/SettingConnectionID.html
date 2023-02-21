@@ -1,0 +1,14 @@
+<h2>Setting a Connection Identifier</h2>
+Communication Manager API does not yet work with full connection identifiers.
+It works with device identifiers instead.
+CSTA has ConnectionIDs in many service requests and responses, but
+only the DeviceID portion is used by this API. Here is a coding example of
+how you could set the DeviceID portion of a ConnectionID assuming you
+had already obtained a DeviceID called "deviceID" from DeviceServices:
+<p />
+<pre>
+ConnectionID connID = new ConnectionID();
+LocalDeviceID localDeviceID = new LocalDeviceID();
+localDeviceID.setStaticID(deviceID);
+connID.setDeviceID(localDeviceID);
+</pre>

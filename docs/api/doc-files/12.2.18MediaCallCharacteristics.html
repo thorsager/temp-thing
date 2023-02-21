@@ -1,0 +1,130 @@
+<!doctype html public "-//w3c//dtd html 4.0 transitional//en">
+<html>
+<head>
+   <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+   <meta name="Author" content="Sandy Burke Slowey">
+   <meta name="GENERATOR" content="Mozilla/4.76 [en] (Windows NT 5.0; U) [Netscape]">
+   <title>12.2.18 MediaCallCharacteristics</title>
+</head>
+<body>
+<i>This description is taken from ECMA-269,
+Section 12.2.18, "Media Call Characteristics".</i>
+<h3>
+12.2.18 MediaCallCharacteristics</h3>
+The MediaCallCharacteristics parameter type specifies the media (voice,
+digital data, etc.) characteristics of the call.
+<p><b>Format</b>
+This parameter type is comprised of the following:
+<p>1. mediaClass (M) Bitmap - Specifies the media class (voice, digital
+data, etc.).
+&nbsp;&nbsp;&nbsp; A CSTA call shall belong to at least one and may
+belong to more than one of the following classes:
+<blockquote>
+<ul>
+<li>
+Audio - 3.1 KHz audio. Calls in this class involve devices that are used
+to make audio calls excluding speech calls. This includes calls involving
+devices such as G3 FAX and facsimile machines.</li>
+
+<li>
+Chat - A type of Data class call that involves text-based messages that
+are exchanged between devices in the call using electronic media. A chat
+call is interactive since devices in the call can participate at the same
+time (i.e. originate and receive messages during the call.) The Data class
+bit must also be set for a Chat call.</li>
+
+<li>
+Data - This class of calls involve digital data calls (both circuit switched
+and packet switched). Calls in this class include devices such as digital
+computer interfaces and G4 facsimile machines.</li>
+
+<li>
+Email - This class of calls involve a text-based message that is sent using
+electronic media. This is a noninteractive call (i.e. only one device involved
+with the call at one time). This is a specific type of mediaClass associated
+with electronic mail systems.</li>
+
+<li>
+Image - Digital data calls involving imaging, or high-speed, circuit-switched
+data in general. This includes calls involving devices such as digital
+video telephones and CODECs.</li>
+
+<li>
+Message - This class of calls involve a text-based message that is sent
+using electronic media. This is a non-interactive call (i.e. only one device
+is involved with the call at one time). The message contents associated
+with these calls can usually be displayed on the called devices. Instant
+Messages (IM), Short Message Service (SMS) are examples of this mediaClass.</li>
+
+<li>
+Voice - Speech calls. This class of calls involves devices such as standard
+telephones.</li>
+
+<li>
+Not Known - The media class is not known.</li>
+
+<li>
+Other - A class of call not belonging to one of the specified mediaClass.</li>
+</ul>
+</blockquote>
+2. connectionRate (O) Value - The digital data connection rate of the call.
+The contents of this parameter is
+switching function specific (the capability exchange services may be
+used to obtain the list of possible values
+that are supported by the switching function). A value of zero (0)
+indicates that the type of media stream
+associated with the connection is digital data but the connection rate
+is unknown.
+<p>3. bitRate (O) Enumerated - The digital data bit rate of the call. If
+this parameter is not present, the bit rate of the
+call is a constant bit. The following is the complete set of possible
+values:
+<blockquote>
+<ul>
+<li>
+Constant (Default) - A bit rate which ensures a dedicated bandwidth and
+a constant rate of media stream delivery.</li>
+
+<li>
+Variable - A bit rate which may variable during the life of the call.</li>
+</ul>
+</blockquote>
+4. delayTolerance (O) Value - The digital data delay tolerance of the call.
+This parameter specifies the maximum
+amount of media stream delivery delay that will be toleranced for the
+call. If the bit rate is constant, then this
+value will indicate the actual amount of media stream delivery delay
+for the life of the call. Where as if the bit
+rate is variable, it will be the maximum delay allowed during the life
+of the call. The contents of this parameter
+is switching function specific, use the capability exchange services
+to obtain the list of possible values that are
+supported by the switching function. If this parameter is not present,
+the delay tolerance of the call is not
+known.
+<p>5. switchingSubDomainCCIEType (O) Enumerated - The type of switching
+sub-domain private call control
+information elements that are present in the switchingSubDomainInformationElements
+parameter. If this
+parameter is not present, there are no information elements associated
+with the call and the
+switchingSubDomainInformationElements parameter should be ignored.
+The following is the complete set of
+possible values:
+<blockquote>• ISDN
+• ATM (B-ISDN)
+• ISO-Ethernet (TDM part only)
+• RSVP
+• SIP
+• Other (switching sub-domain specific)</blockquote>
+6. switchingSubDomainInformationElements (C) Characters - These parameters
+contain the private information
+elements that are available from the switching sub-domain (as specified
+by switchingSubDomainCCIEType)
+which represents a specific set of information elements. The format,
+meaning and behaviour of these
+information elements are specific to the given switching function.
+This parameter is only present and
+mandatory when the switchingSubDomainCCIEType parameter is present.
+</body>
+</html>

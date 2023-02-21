@@ -1,0 +1,82 @@
+<!doctype html public "-//w3c//dtd html 4.0 transitional//en">
+<html>
+<head>
+   <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+   <meta name="Author" content="Sandy Burke Slowey">
+   <meta name="GENERATOR" content="Mozilla/4.76 [en] (Windows NT 5.0; U) [Netscape]">
+   <title>12.2.9 Connection List</title>
+</head>
+<body>
+<i>This description is taken from ECMA-269, Section
+12.2.9, "Connection List".</i>
+<h3>
+12.2.9 ConnectionList</h3>
+The ConnectionList parameter type provides the linkage mechanism between
+a device’s old connection ID and new
+connection ID resulting from the conference or transfer.
+<h4>
+F<b>ormat</b></h4>
+This parameter includes the following components for every device or connection
+being reported.
+<ul>
+<li>
+new ConnectionID (C) ConnectionID - The CallID portion of this ConnectionID
+refers to the resulting call. This component is optional for the transferringDevice
+in the Transferred event, otherwise it is mandatory.</li>
+
+<li>
+old ConnectionID (C) ConnectionID - The CallID portion of this ConnectionID
+refers to the original call. This component is mandatory if the switching
+function previously reported the CallID, otherwise it is optional.</li>
+
+<li>
+endPoint DeviceID (O) DeviceID - For internal calls, this is the representation
+of the device inside the switching sub-domain. For external calls (incoming
+or outgoing), this is the representation of the externally located device
+(if known by the switching function). This component is a character string.
+The maximum length supported by the switching function is provided via
+the capabilities exchange services. It may be:</li>
+
+<ul>
+<li>
+of any device identifier format</li>
+
+<li>
+of the following statuses: “Provided” “Not Known” “Restricted”</li>
+</ul>
+
+<li>
+associatedNID (C) DeviceID - For external calls (incoming and/or outgoing),
+this component specifies the Network Interface Device (e.g., trunk, CO
+line) within the switching sub-domain that is associated with the externally
+located device. In that case the component endPoint DeviceID (if provided)
+shall represent the externally located device. The associatedNID component
+is mandatory in case of external calls and shall be omitted when the device
+is located inside the switching sub-domain. This component may be:</li>
+
+<ul>
+<li>
+of any device identifier format</li>
+
+<li>
+of the following statuses: “Provided” or “Not Known”</li>
+</ul>
+
+<li>
+resultingConnectionInformation (O) ConnectionInformation - This component
+contains the flow direction and channel characteristics associated with
+the resulting connection.</li>
+</ul>
+
+<h4>
+Functional Requirements</h4>
+
+<ol>
+<li>
+This list should be used by the computing function to associate devices
+which remain in a call, as a result of a Conference or Transfer, with the
+connection IDs that are used to manipulate them.</li>
+</ol>
+
+</body>
+</html>

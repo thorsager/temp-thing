@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mapping>
+
+    <!-- Include XSD changes between 6.3 and 6.2 -->
+    <include href="v63To62mapping.xml" />
+
+    <class
+        name="com.avaya.csta.binding.GetRegistrationStateResponse" auto-complete="false">
+        <description>Default mapping for class com.avaya.csta.binding.GetRegistrationStateResponse</description>
+        <map-to xml="GetRegistrationStateResponse" ns-uri="http://www.avaya.com/csta"/>
+        <field name="registrationState"
+            type="com.avaya.csta.binding.types.RegistrationState" required="false"
+            direct="false" transient="false">
+            <bind-xml name="registrationState" node="element" reference="false"/>
+        </field>
+        <field name="gatekeeperAddress" type="string" required="false"
+            direct="false" transient="true">
+            <bind-xml name="gatekeeperAddress" node="element" reference="false"/>
+        </field>
+    </class>
+
+</mapping>

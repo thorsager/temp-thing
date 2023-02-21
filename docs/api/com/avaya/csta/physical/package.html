@@ -1,0 +1,56 @@
+<body>
+Contains constants used by Communication Manager to represent
+button types/functions, button addresses/IDs, lamp modes,
+and ringer types/patterns used in PhysicalDeviceServices.
+The application must use these values when specifying
+buttons, lamps and ringers in service requests, such as
+when specifying which button to press or which lamp to obtain status on.
+The application may also have to interpret values sent to it in responses and
+events. For example, if you requested button information for all the buttons
+on a device
+using the <code>getButtonInformation()</code> request, then the response would
+contain a list of all the buttons on that device, each one identified by its
+button ID and button function.
+<p />
+Note the following mapping between CSTA field names and
+Communication Manager terms:
+<table cellpadding=5 border>
+	<tr>
+		<th>CSTA Field Name</th>
+		<th>Equivalent Communication Manager Term</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td>buttonID or lampID</td>
+		<td>button address</td>
+		<td>Integer value. Both a buttonID and a button address
+			represent the location of the button on
+			the phone. If the button has a lamp, the lampID is the
+			same value as the buttonID. </td>
+	</tr>
+	<tr>
+		<td>buttonFunction</td>
+		<td>button type</td>
+		<td>String value. Both buttonFunction and button type represent
+			the function or feature assigned to the button,
+			such as "CALL_FWD" for the call forward feature and
+			"SEND_CALLS" for the send all calls feature.</td>
+	</tr>
+	<tr>
+		<td>lampMode</td>
+		<td>lamp mode</td>
+		<td>Integer value. A value representing the mode of the lamp,
+			such as 0 for broken flutter,
+			1 for flutter, 2 for off, 3 for steady, 4 for wink,
+			5 for unknown, etc.</td>
+	</tr>
+	<tr>
+		<td>ringPattern</td>
+		<td>ring type</td>
+		<td>Integer value. The value of the ringing pattern.
+			The meaning of ringing patterns and the number of
+			supported patterns is device specific.</td>
+	</tr>
+</table>
+
+</body>

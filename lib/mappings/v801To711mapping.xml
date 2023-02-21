@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mapping>
+
+    <!-- XSD changes between 8.0.1 and 8.1 releases -->
+    <include href="v81To801mapping.xml" />
+
+    <class name="com.avaya.csta.binding.LoginInfo" auto-complete="false">
+        <description>Default mapping for class com.avaya.csta.binding.LoginInfo</description>
+        <map-to xml="loginInfo" ns-uri="http://www.avaya.com/csta"/>
+        <field name="forceLogin" type="boolean" required="false"
+            direct="false" transient="false">
+            <bind-xml name="forceLogin" node="element" reference="false"/>
+        </field>
+        <field name="e911" type="string" required="false" direct="false" transient="false">
+            <bind-xml name="e911" node="element" reference="false"/>
+        </field>
+        <field name="password" type="string" required="false"
+            direct="false" transient="false">
+            <bind-xml name="password" node="element" reference="false"/>
+        </field>
+        <field name="unicodeScript" type="integer" required="false"
+            direct="false" transient="true">
+            <bind-xml name="unicode-script" node="element" reference="false"/>
+        </field>
+        <field name="telecommuterExtension" type="string"
+            required="false" direct="false" transient="false">
+            <bind-xml name="telecommuterExtension" node="element" reference="false"/>
+        </field>
+        <field name="sharedControl" type="boolean" required="false"
+            direct="false" transient="false">
+            <bind-xml name="sharedControl" node="element" reference="false"/>
+        </field>
+        <field name="mediaMode" type="com.avaya.csta.binding.types.MediaMode" required="false"
+            direct="false" transient="false">
+            <bind-xml name="mediaMode" node="element" reference="false"/>
+        </field>
+        <field name="dependencyMode" type="com.avaya.csta.binding.types.DependencyMode" required="false"
+            direct="false" transient="false">
+            <bind-xml name="dependencyMode" node="element" reference="false"/>
+        </field>
+        <field name="mediaContent" type="com.avaya.csta.binding.types.MediaContent" required="false"
+            direct="false" transient="true">
+            <bind-xml name="media-content" node="element" reference="false"/>
+        </field>
+        <field name="mediaTonesAnnc" type="boolean" required="false"
+            direct="false" transient="true">
+            <bind-xml name="media-tones-annc" node="element" reference="false"/>
+        </field>
+    </class>
+
+</mapping>

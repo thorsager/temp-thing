@@ -1,0 +1,73 @@
+<!doctype html public "-//w3c//dtd html 4.0 transitional//en">
+<html>
+<head>
+   <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+   <meta name="Author" content="Sandy Burke Slowey">
+   <meta name="GENERATOR" content="Mozilla/4.76 [en] (Windows NT 5.0; U) [Netscape]">
+   <title>6.7.2 Monitoring</title>
+</head>
+<body>
+<i>This description is taken from ECMA-269, Section 6.7.2,
+"Monitoring".</i>
+<h3>
+6.7.2 Monitoring</h3>
+To track call control and other activity, and to receive notification of
+all changes in the switching Function, the
+computing function uses a feature called monitoring. By starting a
+monitor, the computing function indicates that it
+wants to be notified of specific changes that occur in the objects
+(call and device) and device attributes of a
+switching function. Examples include:
+<ul>
+<li>
+Notification that a call has arrived at a device.</li>
+
+<li>
+Notification that a call has been answered.</li>
+
+<li>
+Notification that a feature such as “Forwarding” or “Do Not Disturb” has
+changed at a device.</li>
+</ul>
+Once a monitor is established, the switching function notifies the computing
+function of relevant activity by sending
+messages called event reports, or simply events.
+<p>For example, in the area of Call Control, events report the state transitions
+through which connections pass. In this
+way a computing function is able to determine what services are applicable
+to a given connection. For example, the
+Delivered event indicates when a connection state transits to the Alerting
+state.
+<p>The event categories are as follows:
+<ul>
+<li>
+Call Control - These events report changes to information related to calls.</li>
+
+<li>
+Call Associated - These events report changes to information related to
+calls.</li>
+
+<li>
+Media Stream - These events report changes associated with attachment of
+a call to a media device.</li>
+
+<li>
+Physical Device - These events report changes to the components of a device's
+physical element.</li>
+
+<li>
+Logical Device - These events report changes to feature settings associated
+with a device's logical element(s).</li>
+
+<li>
+Voice Unit - These events report changes to Voice Unit messages.</li>
+
+<li>
+Maintenance - These events report changes regarding maintenance.</li>
+
+<li>
+Private - These events are switching function specific.</li>
+</ul>
+
+</body>
+</html>

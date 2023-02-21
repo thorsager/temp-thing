@@ -1,0 +1,125 @@
+<!doctype html public "-//w3c//dtd html 4.0 transitional//en">
+<html>
+<head>
+   <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+   <meta name="Author" content="Sandy Burke Slowey">
+   <meta name="GENERATOR" content="Mozilla/4.76 [en] (Windows NT 5.0; U) [Netscape]">
+   <title>12.2.15 Event Cause</title>
+</head>
+<body>
+<i>This description is taken from ECMA-269, Section
+12.2.15, "Event Cause".</i>
+<h3>
+12.2.15 EventCause</h3>
+The EventCause parameter type provides additional information on why an
+event was generated.
+<p><b>Format</b>
+<p>Event causes are defined within the context of an event. For a description
+of an event cause refer to the event cause
+description associated with a specific event.
+<p>This parameter type contains one of the following event causes:
+<blockquote>• ACD Busy
+• ACD Forward
+• ACD Saturated
+• Active Participation
+• Alert Time Expired
+• Alternate
+• Auto Work
+• Blocked
+• Busy
+• Busy Overflow
+• Calendar Overflow
+• Call Back
+• Call Cancelled
+• Call Forward
+• Call Forward - Busy
+• Call Forward - Immediate
+• Call Forward - No Answer
+• Call Not Answered
+• Call Pickup
+• Camp On
+• Camp On Trunks
+• Capacity Overflow
+• Character Count Reached
+• Conference
+• Consultation
+• Destination Detected
+• Destination Not Obtainable
+• Destination Out of Order
+• Distributed
+• Distribution Delay
+• Do Not Disturb
+• DTMF Digit Detected
+• Duration Exceeded
+• End of Message Detected
+• Entering Distribution
+• Forced Pause
+• Forced Transition
+• Incompatible Destination
+• Intrude
+• Invalid Account Code
+- 106 -
+• Invalid Number Format
+• Join Call
+• Key Operation
+• Key Operation In Use
+• Lockout
+• Maintenance
+• Make Call
+• Make Predictive Call
+• Message Duration Exceeded
+• Message Size Exceeded
+• Multiple Alerting
+• Multiple Queuing
+• Network Congestion
+• Network Dialling
+• Network Not Obtainable
+• Network Out of Order
+• Network Signal
+• New Call
+• Next Message
+• No Available Agents
+• Normal
+• Normal Clearing
+• No Speech Detected
+• Not Available Bearer Service
+• Not Supported Bearer Service
+• Number Changed
+• Number Unallocated
+• Overflow
+• Override
+• Park
+• Path Replacement
+• Queue Cleared
+• Queue Time Overflow
+• Recall
+• Recall - Busy
+• Recall - Forwarded
+• Recall - No Answer
+• Recall - Resources Not Available
+- 107 -
+• Redirected
+• Remains in Queue
+• Reorder Tone
+• Reserved
+• Resources Not Available
+• Selected Trunk Busy
+• Silent Participation
+• Single Step Conference
+• Single Step Transfer
+• Speech Detected
+• Suspend
+• Switching Function Terminated
+• Termination Character Received
+• Timeout
+• Transfer
+• Trunks Busy
+• Unauthorized Bearer Service
+• Unknown Overflow</blockquote>
+<b>Functional Requirements</b>
+&nbsp;Event causes are only present in events that result from the
+feature/situation associated with the meaning of the
+cause. Once that feature or situation ceases to be active, then the
+event cause is no longer present in the events.
+</body>
+</html>

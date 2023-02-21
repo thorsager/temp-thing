@@ -1,0 +1,58 @@
+<h2>Using Listeners in the Device, Media & Call Control (DMCC) API</h2>
+Java listeners are used to implement the CSTA concept called
+<a href="6.7.2Monitoring.html">monitoring</a>.
+Adding a listener to a device is
+equivalent to requesting a Monitor Start service for that device.
+Listeners are used to asynchronously notify your applications of events
+that occur.
+<p />
+The Device, Media & Call Control (DMCC) API provides multiple types of listeners,
+one or more per service.
+For example, <tt>PhysicalDeviceServices</tt> has
+<tt>PhysicalDeviceListener</tt> to detect
+events on a physical device, whereas
+<tt>TerminalServices</tt> has both <tt>TerminalListener</tt> and
+<tt>MediaControlListener</tt> to detect
+events regarding device registration and a device's media stream, respectively.
+Each service may also have a listener adapter,
+such as <tt>PhysicalDeviceAdapter</tt>
+and <tt>TerminalAdapter</tt>.
+<p />
+Each listener interface provides a callback method declaration for each type of
+event that can occur, but no implementation. In contrast,
+a listener adapter implements the listener interface with a default "do nothing"
+implementation for each declared method.
+<p />
+When an event occurs, the corresponding listener callback is called.
+If you want your application to
+act upon events, you can customize the events' callbacks for your application
+in either of the following ways:
+<ul><li>Provide an implementation of every callback method in
+     a listener interface with a class that implements the listener.</li>
+<li>Provide an implementation of a subset of callback methods
+    with a class that extends the adapter.</li>
+</ul>
+<p />
+To receive notification of events, your application must then
+add your listener implementation using
+<tt>MonitoringServices.add<i>XXX</i>Listener</tt> method.
+For example, to add an implementation of <tt>PhysicalDeviceListener</tt> (or
+an extension to <tt>PhysicalDeviceAdapter</tt>)
+that you have named <tt>myPhysDevListenerImpl</tt>, use:
+<pre>
+monitoringServices.addPhysicalDeviceListener(myDevice, myPhysDevListenerImpl);
+</pre>
+Note that there is one exception to this. When adding a <tt>SystemStatusListener</tt>,
+you add the listener using System Services, instead of Monitoring Services:
+<pre>
+systemServices.addSystemStatusListener(mySwitch, mySystemListenerImpl);
+</pre>
+Also note that events that occur prior to adding a listener are not reported.
+<p />
+If multiple listeners are added to a device, then each listener will be notified
+of events on that device; the corresponding callback will be called on each
+listener that has been added.
+<p />
+To cease event reports, your application must remove the added listener
+by using the <tt>MonitoringServices.remove<i>XXX</i>Listener</tt> method or the
+<tt>SystemServices.removeSystemStatusListener</tt> method.

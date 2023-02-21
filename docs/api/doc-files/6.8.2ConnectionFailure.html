@@ -1,0 +1,184 @@
+<!doctype html public "-//w3c//dtd html 4.0 transitional//en">
+<html>
+<head>
+   <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+   <meta name="Author" content="Sandy Burke Slowey">
+   <meta name="GENERATOR" content="Mozilla/4.76 [en] (Windows NT 5.0; U) [Netscape]">
+   <title>6.8.2 Connection Failure</title>
+</head>
+<body>
+<i>This description is taken from ECMA-269, Section
+6.8.2, "Connection Failure".</i>
+&nbsp;
+<h3>
+6.8.2 Connection Failure</h3>
+The information indicating connection failure can be reported through several
+different event sequences. The
+computing function should use the capabilities exchange services to
+determine which of these services and events
+the switching function supports. The following are the possible event
+sequences associated with connection failure:
+<p>1. <i>Negative Acknowledgement</i> - When the switching function supports
+service requests that perform connection
+creation process and the switching function detects a failure, the
+negative acknowledgement can be used to
+indicate the failure to complete the connection. The following are
+the service requests associated with
+connection creation process:
+<blockquote>
+<ul>
+<li>
+Consultation Call</li>
+
+<li>
+Deflect Call</li>
+
+<li>
+Dial Digits</li>
+
+<li>
+Join Call</li>
+
+<li>
+Make Call</li>
+
+<li>
+Make Predictive Call</li>
+
+<li>
+Pickup Call</li>
+
+<li>
+Single Step Conference Call</li>
+
+<li>
+Single Step Transfer Call</li>
+</ul>
+</blockquote>
+If the switching function uses the negative acknowledgement to indicate
+the connection failure, then the
+appropriate error code will be used to indicate the particular failure.
+<p>2. <i>Support of the Failed Event with an Associated Failed Connection</i>
+- When the switching function detects a
+connection failure, it places that connection into the failed state.
+This indicates that the call control services
+which can be performed with respect to the connection are limited.
+The following is the list of call control
+services that are applicable:
+<blockquote>
+<ul>
+<li>
+Clear Call</li>
+
+<li>
+Clear Connection</li>
+
+<li>
+Call Back Call-Related</li>
+
+<li>
+Call Back Message Call-Related</li>
+
+<li>
+Camp On Call</li>
+
+<li>
+Deflect Call</li>
+
+<li>
+Intrude Call</li>
+</ul>
+</blockquote>
+When a connection enters the Failed state, the event sequence provided
+is a Failed event. The characteristics
+associated with this event sequence are:
+<blockquote>
+<ul>
+<li>
+The Failed event will have an appropriate failure event cause.</li>
+
+<li>
+The failedConnection parameter in the Failed event will contain a “complete”
+Connection Identifier (i.e., a Connection Identifier that has both a Device
+Identifier and Call Identifier)</li>
+
+<li>
+The Failed event will be reported to all active device-type monitors associated
+with the call, as well as all call monitors associated with the call.</li>
+</ul>
+</blockquote>
+3. <i>Support of the Failed Event without an Associated Failed Connection</i>
+- This case is similar to the “Support of
+the Failed Event with an Associated Failed Connection” state (case
+2). The difference is that when the
+switching function detects a connection failure, it does not create
+a connection for the failed device but instead
+indicates to the computing function that call control services, with
+respect to the connection, are limited. The
+following is the list of call control services that are applicable
+to the connection in the call under these
+conditions:
+<blockquote>
+<ul>
+<li>
+Clear Call</li>
+
+<li>
+Clear Connection</li>
+
+<li>
+Call Back Call-Related</li>
+
+<li>
+Call Back Message Call-Related</li>
+
+<li>
+Camp On Call</li>
+
+<li>
+Deflect Call</li>
+
+<li>
+Intrude Call</li>
+</ul>
+</blockquote>
+When the failure is detected, the event sequence provided is a Failed event.
+The characteristics associated with
+this event sequence are:
+<blockquote>
+<ul>
+<li>
+The Failed event will have an appropriate failure event cause.</li>
+
+<li>
+The failedConnection parameter in the Failed event will contain a “Call
+ID only” Connection Identifier. This indicates that there is not a valid
+connection for the failed device in the call but that the appropriate call
+control service can be performed (i.e., Call Back Call-Related, Intrude
+Call, etc.). In the figures for the services and events, this “Call ID
+only” connection identifier is indicated via a dotted line (see Clause
+11 for the template descriptions).</li>
+
+<li>
+The Failed event will only be reported to the active device and call monitors
+associated with the devices that where in the call prior to the failure
+(i.e., if a device-type monitor was on the failed device, then the event
+sequence is not reported).</li>
+</ul>
+</blockquote>
+If the Camp On Call or Intrude Call service request is performed, then
+the connection associated with the failed
+device will be created (i.e., a valid connection).
+<p>4. <i>Support of the Failed Event with an Associated Failed Connection,
+not reported via monitors on the failing</i>
+<i>device </i>- This case is similar to the “Support of the Failed
+Event with an Associated Failed Connection” state
+(case 2). The difference is for which monitors the Failed event is
+being sent: The Failed event will only be
+reported to the active device and call monitors associated with the
+devices that were in the call prior to the
+failure (i.e. if a device-type monitor was on the failed device, then
+the event sequence is not reported). Apart
+from this, all aspects from case 2 apply also to this case.
+</body>
+</html>

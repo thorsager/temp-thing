@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mapping>
+
+    <!-- XSD changes between 7.1 and 7.0 releases -->
+    <include href="v711To70mapping.xml" /> 
+
+</mapping>

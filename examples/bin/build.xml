@@ -1,0 +1,294 @@
+<project name="exampleApps" default="buildAll" basedir="..">
+	<property name="build" value="build"/>
+	<property name="rmiport" value="1099"/>
+
+	<path id="src">
+		<pathelement path="src"/>
+	</path>
+	<path id="resources">
+		<pathelement path="resources"/>
+	</path>
+        <path id="mappings">
+		<pathelement path="../lib/mappings"/>
+	</path>
+
+	<path id="lib">
+		<fileset dir="lib">
+			<include name="*.jar"/>
+		</fileset>
+		<fileset dir="../lib">
+			<include name="*.jar"/>
+		</fileset>
+	</path>
+	
+	<path id="run">
+		<pathelement path="${build}"/>
+		<path refid="lib"/>
+		<path refid="resources"/>
+		<path refid="mappings"/>
+	</path>
+	
+	<target name="buildAll"
+	    depends="buildClick2Call,buildEmail,buildSimpleIVR,
+		         buildSoftphone,buildTutorial,buildTutorialMediaStack,
+		         buildSessionManagement,buildSelectiveStreamApp,buildTutorialTtyApp,
+                 buildClick2CallCCS,buildSimpleIVRCCS,buildTutorialCCS">
+	</target>
+	
+	<target name="clean">
+		<delete dir="${build}"/>
+	</target>
+
+	<target name="stage">
+		<mkdir dir="${build}"/>
+	</target>
+
+	<!-- begin Click2Call app -->
+	<target name="buildClick2Call" depends="stage">
+		<javac debug="true" destdir="${build}">	
+			<src refid="src"/>
+			<classpath refid="lib"/>
+			<include name="sampleapps/click2call/*.java"/>
+			<include name="sampleapps/station/*.java"/>
+		</javac>
+		
+		<copy todir="${build}">
+			<fileset dir="src">
+				<include name="sampleapps/click2call/*.gif"/>
+			</fileset>
+		</copy>
+	</target>
+	
+	<target name="runClick2Call" depends="buildClick2Call">
+		<java fork="yes" classname="sampleapps.click2call.Click2Call">
+			<classpath refid="run"/>
+			<jvmarg value="-Dlog4j.configuration=file:${basedir}/resources/logging.properties" />
+			<jvmarg value="-Djdk.tls.client.protocols=TLSv1,TLSv1.1,TLSv1.2,TLSv1.3" />
+		</java>
+	</target>
+	<!-- end Click2Call app -->
+	
+	<!-- begin Click2CallCCS app -->
+	<target name="buildClick2CallCCS" depends="stage">
+		<javac debug="true" destdir="${build}">	
+			<src refid="src"/>
+			<classpath refid="lib"/>
+			<include name="sampleapps/ccs/click2call/*.java"/>
+			<include name="sampleapps/station/*.java"/>
+		</javac>
+		
+		<copy todir="${build}">
+			<fileset dir="src">
+				<include name="sampleapps/ccs/click2call/*.gif"/>
+			</fileset>
+		</copy>
+	</target>
+	
+	<target name="runClick2CallCCS" depends="buildClick2CallCCS">
+		<java fork="yes" classname="sampleapps.ccs.click2call.Click2Call">
+			<classpath refid="run"/>
+			<jvmarg value="-Dlog4j.configuration=file:${basedir}/resources/logging.properties" />
+			<jvmarg value="-Djdk.tls.client.protocols=TLSv1,TLSv1.1,TLSv1.2,TLSv1.3" />
+		</java>
+	</target>
+	<!-- end Click2CallCCS app -->
+
+	<!-- begin Email app -->
+	<target name="buildEmail" depends="stage">
+		<javac debug="true" destdir="${build}">	
+			<src refid="src"/>
+			<classpath refid="lib"/>
+			<include name="sampleapps/email/*.java"/>
+			<include name="sampleapps/station/*.java"/>
+		</javac>
+	</target>
+	
+	<target name="runEmail" depends="buildEmail">
+		<java fork="yes" classname="sampleapps.email.EmailApp">
+			<classpath refid="run"/>
+			<jvmarg value="-Dlog4j.configuration=file:${basedir}/resources/logging.properties" />
+			<jvmarg value="-Djdk.tls.client.protocols=TLSv1,TLSv1.1,TLSv1.2,TLSv1.3" />
+		</java>
+	</target>
+	<!-- end Email app -->
+
+	<!-- begin SimpleIVR app -->
+	<target name="buildSimpleIVR" depends="stage">
+		<javac debug="true" destdir="${build}">	
+			<src refid="src"/>
+			<classpath refid="lib"/>
+			<include name="sampleapps/simpleIVR/*.java"/>
+			<include name="sampleapps/station/*.java"/>
+		</javac>
+	</target>
+	
+	<target name="runSimpleIVR" depends="buildSimpleIVR">
+		<java fork="yes" classname="sampleapps.simpleIVR.SimpleIVRApp">
+			<classpath refid="run"/>
+			<jvmarg value="-Dlog4j.configuration=file:${basedir}/resources/logging.properties" />
+			<jvmarg value="-Djdk.tls.client.protocols=TLSv1,TLSv1.1,TLSv1.2,TLSv1.3" />
+		</java>
+	</target>
+	<!-- end SimpleIVR app -->
+	
+	<!-- begin SimpleIVRCCS app -->
+	<target name="buildSimpleIVRCCS" depends="stage">
+		<javac debug="true" destdir="${build}">	
+			<src refid="src"/>
+			<classpath refid="lib"/>
+			<include name="sampleapps/ccs/simpleIVR/*.java"/>
+			<include name="sampleapps/station/*.java"/>
+		</javac>
+	</target>
+	
+	<target name="runSimpleIVRCCS" depends="buildSimpleIVRCCS">
+		<java fork="yes" classname="sampleapps.ccs.simpleIVR.SimpleIVRApp">
+			<classpath refid="run"/>
+			<jvmarg value="-Dlog4j.configuration=file:${basedir}/resources/logging.properties" />
+			<jvmarg value="-Djdk.tls.client.protocols=TLSv1,TLSv1.1,TLSv1.2,TLSv1.3" />
+		</java>
+	</target>
+	<!-- end SimpleIVRCCS app -->
+	
+	<!-- begin Softphone app -->
+	<target name="buildSoftphone" depends="stage">
+		<javac debug="true" destdir="${build}">	
+			<src refid="src"/>
+			<classpath refid="lib"/>
+			<include name="sampleapps/softphone/*.java"/>
+			<include name="sampleapps/station/*.java"/>
+		</javac>
+	</target>
+	
+	<target name="runSoftphone" depends="buildSoftphone">
+		<java fork="yes" classname="sampleapps.softphone.Softphone">
+			<classpath refid="run"/>
+			<jvmarg value="-Dlog4j.configuration=file:${basedir}/resources/logging.properties" />
+			<jvmarg value="-Djdk.tls.client.protocols=TLSv1,TLSv1.1,TLSv1.2,TLSv1.3" />
+		</java>
+	</target>
+	<!-- end Softphone app -->
+
+	<!-- begin Tutorial app -->
+	<target name="buildTutorial" depends="stage">
+		<javac debug="true" destdir="${build}">	
+			<src refid="src"/>
+			<classpath refid="lib"/>
+			<include name="sampleapps/tutorial/*.java"/>
+			<include name="sampleapps/station/*.java"/>
+		</javac>
+	</target>
+	
+	<target name="runTutorial" depends="buildTutorial">
+		<java fork="yes" classname="sampleapps.tutorial.TutorialApp">
+			<classpath refid="run"/>
+			<jvmarg value="-Dlog4j.configuration=file:${basedir}/resources/logging.properties" />
+			<jvmarg value="-Djdk.tls.client.protocols=TLSv1,TLSv1.1,TLSv1.2,TLSv1.3" />
+		</java>
+	</target>
+	<!-- end Tutorial app -->
+	
+	<!-- begin Tutorial app -->
+	<target name="buildTutorialCCS" depends="stage">
+		<javac debug="true" destdir="${build}">	
+			<src refid="src"/>
+			<classpath refid="lib"/>
+			<include name="sampleapps/ccs/tutorial/*.java"/>
+			<include name="sampleapps/station/*.java"/>
+		</javac>
+	</target>
+	
+	<target name="runTutorialCCS" depends="buildTutorialCCS">
+		<java fork="yes" classname="sampleapps.ccs.tutorial.TutorialApp">
+			<classpath refid="run"/>
+			<jvmarg value="-Dlog4j.configuration=file:${basedir}/resources/logging.properties" />
+			<jvmarg value="-Djdk.tls.client.protocols=TLSv1,TLSv1.1,TLSv1.2,TLSv1.3" />
+		</java>
+	</target>
+	<!-- end Tutorial app -->
+
+	<!-- begin TutorialMediaStack app -->
+	<target name="buildTutorialMediaStack" depends="stage">
+		<javac debug="true" destdir="${build}">	
+			<src refid="src"/>
+			<classpath refid="lib"/>
+			<include name="sampleapps/clientmediastack/*.java"/>
+			<include name="sampleapps/station/*.java"/>
+		</javac>
+	</target>
+	
+	<target name="runTutorialMediaStack" depends="buildTutorialMediaStack">
+		<java fork="yes" classname="sampleapps.clientmediastack.TutorialMediaStack">
+			<classpath refid="run"/>
+			<jvmarg value="-Dlog4j.configuration=file:${basedir}/resources/logging.properties" />
+			<jvmarg value="-Djdk.tls.client.protocols=TLSv1,TLSv1.1,TLSv1.2,TLSv1.3" />
+		</java>
+	</target>
+	<!-- end TutorialMediaStack app -->
+
+	<!-- begin TutorialTtyApp app -->
+	<target name="buildTutorialTtyApp" depends="stage">
+		<javac debug="true" destdir="${build}">	
+			<src refid="src"/>
+			<classpath refid="lib"/>
+			<include name="sampleapps/clientmediastack/TutorialMicrophone.java"/>
+			<include name="sampleapps/clientmediastack/TutorialSpeaker.java"/>
+			<include name="sampleapps/clientmediastack/tty/*.java"/>
+			<include name="sampleapps/station/*.java"/>
+		</javac>
+		<echo message="Copying property files"/>
+		<!-- copy over the resource bundles -->
+		<copy todir="${build}" verbose="true">
+			<fileset dir="src">
+			   <include name="sampleapps/clientmediastack/tty/*.properties"/>
+			</fileset>
+		</copy>
+	</target>
+	
+	<target name="runTutorialTtyApp" depends="buildTutorialTtyApp">
+		<java fork="yes" classname="sampleapps.clientmediastack.tty.TutorialTtyApp">
+			<classpath refid="run"/>
+			<jvmarg value="-Dlog4j.configuration=file:${basedir}/resources/logging.properties" />
+			<jvmarg value="-Djdk.tls.client.protocols=TLSv1,TLSv1.1,TLSv1.2,TLSv1.3" />
+		</java>
+	</target>
+	<!-- end TutorialMediaStack app -->
+	
+	<!-- begin SessionManagement app -->
+	<target name="buildSessionManagement" depends="stage">
+		<javac debug="true" destdir="${build}">	
+			<src refid="src"/>
+			<classpath refid="lib"/>
+			<include name="sampleapps/session/*.java"/>
+			<include name="sampleapps/station/*.java"/>
+		</javac>
+	</target>
+	
+	<target name="runSessionManagement" depends="buildSessionManagement">
+		<java fork="yes" classname="sampleapps.session.SessionManagementApp">
+			<classpath refid="run"/>
+			<jvmarg value="-Dlog4j.configuration=file:${basedir}/resources/logging.properties" />
+			<jvmarg value="-Djdk.tls.client.protocols=TLSv1,TLSv1.1,TLSv1.2,TLSv1.3" />
+		</java>
+	</target>
+	<!-- end SessionManagement app -->
+	
+	<!-- begin SeletiveStreamApp -->
+	<target name="buildSelectiveStreamApp" depends="stage">
+		<javac debug="true" destdir="${build}">	
+			<src refid="src"/>
+			<classpath refid="lib"/>
+			<include name="sampleapps/selectivestream/*.java"/>
+		</javac>
+	</target>
+	
+	<target name="runSelectiveStreamApp" depends="buildSelectiveStreamApp">
+		<java fork="yes" classname="sampleapps.selectivestream.SelectiveStreamApp">
+			<classpath refid="run"/>
+			<jvmarg value="-Dlog4j.configuration=file:${basedir}/resources/logging.properties" />
+			<jvmarg value="-Djdk.tls.client.protocols=TLSv1,TLSv1.1,TLSv1.2,TLSv1.3" />
+		</java>
+	</target>
+	<!-- end SelectiveStreamApp -->
+	
+</project>

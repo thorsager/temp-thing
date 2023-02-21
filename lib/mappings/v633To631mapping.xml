@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mapping>
+
+    <!-- XSD changes between 7.0 and 6.3.3 releases -->
+    <include href="v70To633mapping.xml" />
+
+    <!-- 6.3.1 does not have salt keys, drop any salt key related element -->
+    <class name="com.avaya.csta.binding.Encryption" auto-complete="false">
+        <description>Default mapping for class com.avaya.csta.binding.Encryption</description>
+        <map-to xml="Encryption" ns-uri="http://www.avaya.com/csta"/>
+        <field name="protocol" type="string" required="false"
+            direct="false" transient="false">
+            <bind-xml name="protocol" node="element" reference="false"/>
+        </field>
+        <field name="transmitKey" type="string" required="false"
+            direct="false" transient="false">
+            <bind-xml name="transmitKey" node="element" reference="false"/>
+        </field>
+        <field name="receiveKey" type="string" required="false"
+            direct="false" transient="false">
+            <bind-xml name="receiveKey" node="element" reference="false"/>
+        </field>
+        <field name="payloadType" type="integer" required="false"
+            direct="false" transient="false">
+            <bind-xml name="payloadType" node="element" reference="false"/>
+        </field>
+        <field name="transmitSalt" type="string" required="false"
+            direct="false" transient="true">
+            <bind-xml name="transmitSalt" node="element" reference="false"/>
+        </field>
+        <field name="receiveSalt" type="string" required="false"
+            direct="false" transient="true">
+            <bind-xml name="receiveSalt" node="element" reference="false"/>
+        </field>
+    </class>
+
+</mapping>

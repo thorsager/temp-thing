@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mapping>
+
+    <!-- Include XSD changes between 6.2 and 6.1 -->
+    <include href="v62To61mapping.xml" />
+
+    <class name="com.avaya.csta.binding.MonitorObjectData" auto-complete="true">
+        <description>Default mapping for class com.avaya.csta.binding.MonitorObjectData</description>
+        <map-to xml="MonitorObjectData" ns-uri="http://www.avaya.com/csta"/>
+        <field name="extensions" type="ch.ecma.csta.binding.CSTACommonArguments"
+            required="false" direct="false" transient="true">
+            <bind-xml name="extensions" node="element" reference="false"/>
+        </field>
+    </class>
+    <class
+        name="com.avaya.csta.binding.PhysicalDeviceFeaturesPrivateEvents" auto-complete="false">
+        <description>Default mapping for class com.avaya.csta.binding.PhysicalDeviceFeaturesPrivateEvents</description>
+        <map-to xml="PhysicalDeviceFeaturesPrivateEvents" ns-uri="http://www.avaya.com/csta"/>
+        <field name="e911CallBlocked" type="boolean" required="false"
+            direct="false" transient="false">
+            <bind-xml name="e911CallBlocked" node="element" reference="false"/>
+        </field>
+        <field name="serviceLinkStatusChanged" type="boolean"
+            required="false" direct="false" transient="true">
+            <bind-xml name="serviceLinkStatusChanged" node="element" reference="false"/>
+        </field>
+    </class>
+    <class
+        name="ch.ecma.csta.binding.SingleStepTransferCallResponse" auto-complete="false">
+        <description>Default mapping for class com.avaya.csta.binding.SingleStepTransferCallResponse</description>
+        <map-to xml="SingleStepTransferCallResponse" ns-uri="http://www.avaya.com/csta"/>
+        <field name="transferredCall" type="ch.ecma.csta.binding.ConnectionID"
+            required="false" direct="false" transient="false">
+            <bind-xml name="transferredCall" node="element" reference="false"/>
+        </field>
+        <field name="connections" type="ch.ecma.csta.binding.ConnectionList"
+            required="false" direct="false" transient="false">
+            <bind-xml name="connections" node="element" reference="false"/>
+        </field>
+        <field name="transferredCallInfo" type="ch.ecma.csta.binding.ConnectionInformation"
+            required="false" direct="false" transient="false">
+            <bind-xml name="transferredCallInfo" node="element" reference="false"/>
+        </field>
+        <field name="singleStepTranferCallResponsePrivateData" type="string"
+            required="false" direct="false" transient="true">
+            <bind-xml name="singleStepTranferCallResponsePrivateData" node="element" reference="false"/>
+        </field>
+    </class>
+
+</mapping>

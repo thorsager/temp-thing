@@ -1,0 +1,427 @@
+<!doctype html public "-//w3c//dtd html 4.0 transitional//en">
+<html>
+<head>
+   <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+   <meta name="Author" content="Sandy Burke Slowey">
+   <meta name="GENERATOR" content="Mozilla/4.76 [en] (Windows NT 5.0; U) [Netscape]">
+   <title>CSTA Device ID Formats</title>
+</head>
+<body>
+<i>This clause was taken from ECMA-269, Section 10,
+page 77. It describes the formats that may be used for Device Identifiers,
+their usage, and examples.</i>
+<h1>
+10 CSTA Device Identifier Formats</h1>
+
+<h2>
+10.1 Device Identifier Formats</h2>
+The possible types of Device Identifiers formats are:
+<ul>
+<li>
+<i>Diallable Digits</i> - this format is a sequence of characters to be
+dialled to reach a device. The sequence of characters may contain diallable
+digits and/or special characters that specify to the switching function
+how digits should be dialled (“,” indicates that a pause should be inserted
+into the dialling sequence, for example). This format must be used when
+special dialling characters are required or when it is necessary to provide
+partial or incomplete dialling sequences.</li>
+
+<li>
+<i>Switching Function Representation</i> - this format is a sequence of
+characters that is used to reference devices within a switching sub-domain.
+In addition to specifying the directory number of the device, it also provides
+the ability to specify call appearance, agent identifier, subaddress, name,
+etc.</li>
+
+<li>
+<i>Device Number</i> - this format is an non-diallable, integer representation
+of a Device Identifier. This format of Device Identifier can be used to
+reference switching sub-domain devices that may not be typically associated
+with a diallable number such as trunks, line cards, etc.</li>
+</ul>
+In this section, the following example will be reflected. The called number
+is a subscriber in the US (country code
+<br>1) in San Jose (area code 408). The local number is 996 1010. The extension
+is 321. The name of the subscriber is
+<br>“John Smith”.
+<h3>
+10.1.1 Diallable Digits</h3>
+<b>Generic Format:</b> DD
+<p>A first character of the Device Identifier string which is not “N” indicates
+that the Device Identifier uses the
+<br>Diallable Digits format. This format may contain from 0 (a null formatted
+Device Identifier) to 64 characters. DD is
+<br>a string of dialling commands/digits. The following is the list of
+the complete set of permitted dialling commands/
+<br>digits and their definitions:
+<dl>&nbsp;
+<table BORDER=3 CELLSPACING=3 CELLPADDING=3 >
+<tr>
+<td>
+<dl>0-9</dl>
+</td>
+
+<td>
+<dl>These characters represents the number digits on a telephone keypad.</dl>
+</td>
+</tr>
+
+<tr>
+<td>
+<dl>*</dl>
+</td>
+
+<td>
+<dl>This represents the “*” character typically found on a telephonekeypad.</dl>
+</td>
+</tr>
+
+<tr>
+<td>
+<dl>#</dl>
+</td>
+
+<td>
+<dl>This represents the “#” character typically found on a telephonekeypad.</dl>
+</td>
+</tr>
+
+<tr>
+<td>
+<dl>A-D</dl>
+</td>
+
+<td>
+<dl>These characters represent DTMF digits.</dl>
+</td>
+</tr>
+
+<tr>
+<td>
+<dl>!</dl>
+</td>
+
+<td>
+<dl>The exclamation mark indicates that a hookflash is to be insertedinto
+the dial string.</dl>
+</td>
+</tr>
+
+<tr>
+<td>
+<dl>P</dl>
+</td>
+
+<td>
+<dl>The character P followed by a string of digits indicates that thestring
+of digits is to be pulse dialled.</dl>
+</td>
+</tr>
+
+<tr>
+<td>
+<dl>T</dl>
+</td>
+
+<td>
+<dl>The character T followed by a string of digits indicates that thestring
+of digits is to be tone dialled.</dl>
+</td>
+</tr>
+
+<tr>
+<td>,</td>
+
+<td>The comma character indicates that dialling is to be paused. Thelength
+of the pause is provided by the switching function through the capabilitiesexchange
+services. Multiple commas can be used to create a long pause.</td>
+</tr>
+
+<tr>
+<td>
+<dl>W</dl>
+</td>
+
+<td>
+<dl>The character W followed by a string of digits indicates that thestring
+of digits is to be dialled only after dial tone has been detectedby the
+switching function.</dl>
+</td>
+</tr>
+
+<tr>
+<td>
+<dl>@</dl>
+</td>
+
+<td>
+<dl>The “at” symbol indicates that the switching function shall waitfor
+“Quiet Answer” before dialling the rest of the string. This means that
+the switching function shall wait for remote ringing indication followedby
+5 seconds of silence.</dl>
+</td>
+</tr>
+
+<tr>
+<td>$</td>
+
+<td>This dollar sign indicates that the switching function shall wait for
+the billing signal (i.e., credit
+<br>card prompt tone) before continuing.</td>
+</tr>
+
+<tr>
+<td>;</td>
+
+<td>The semi-colon character indicates that the digit string is incomplete
+and more digits will be dialled
+<br>using the Dial Digits service. This character may only be used in a
+Diallable String Device
+<br>Identifier.</td>
+</tr>
+</table>
+
+<h4>
+Examples:</h4>
+
+<ul>
+<li>
+If the number is called from France (country prefix 003), the string is
+“00,14089961010W321”.</li>
+
+<li>
+If the number is called from a switch in New York (dial 9 to get outside
+line), the string is“9,14089961010W321”.</li>
+
+<li>
+If the number is called from San Jose, the string is “9961010W321”.</li>
+
+<li>
+If the number is called from inside the subscriber’s PBX, the string is
+“321”.</li>
+</ul>
+
+<h4>
+Functional Requirements:</h4>
+
+<ol>
+<li>
+The switching function shall accept, as a minimum, digits 0-9 of this format
+when the computing function wants to make a call.</li>
+
+<li>
+The diallable digits format shall be used to represent a device’s dialling
+sequence. A device’s dialling sequence is a string of outband digits used
+to initiate a call with another device. When placing a call from a device
+to another device, there are basically two ways a device’s dialling sequence
+can be used:</li>
+
+<ol>
+<li>
+The entire sequence of digits is dialled to reach the destination. This
+is the most common way to place a call.</li>
+
+<li>
+The dialling sequence is broken up into a number of stages in order to
+execute and complete the call. This is called “multi-stage” dialling in
+this Standard. This type of dialling is needed in cases where the switching
+function prompts the device for more digits (by sending dialtone again
+or some other tone).</li>
+</ol>
+</ol>
+
+<p><br>Note that switching functions support different combinations of
+dialling sequences.
+<br>&nbsp;
+<h3>
+10.1.2 Switching Function Representation</h3>
+<b>Generic Format:</b> N&lt;DN!SA&amp;CA/EXT%AID>NM (in this order)
+<p>The syntax of the generic format is broken down as follows:
+<table BORDER=3 CELLSPACING=3 CELLPADDING=3 >
+<tr>
+<td>
+<dl>N</dl>
+</td>
+
+<td>
+<dl>The “N” character at the beginning of the Device Identifier string
+(which is 2 to 64 characters in length) indicates that the Device Identifier
+uses the Switching Function Representation format. At least one of the
+following components needs to be present in this format:</dl>
+</td>
+</tr>
+
+<tr>
+<td>
+<dl>&lt; ></dl>
+</td>
+
+<td>
+<dl>The angled brackets characters encompass the string when a name (NM)
+string representing the person associated with the device is provided after
+the “>” character. If the character “&lt;” is not the first character in
+the string after the N then the string will not have a name string associated
+with it.</dl>
+</td>
+</tr>
+
+<tr>
+<td>
+<dl>DN</dl>
+</td>
+
+<td>
+<dl>The first string of characters represents the Directory Number (DN)associated
+with the given device. The Directory Number shall contain characters selected
+from the following set: “0” through “9”, “*”, “#”, DTMF digits “A”through
+“D”. The Directory Number may use any of the following notations (refer
+to ISO/IEC 11571, ITU-T E.131):
+<br>• Implicit TON (Type Of Number) (example: “0014089961010”4)
+<br>• PublicTON - unknown
+<br>• PublicTON - international number (example: “14089961010”)
+<br>• PublicTON - national (example: “4089961010”)
+<br>• PublicTON - subscriber (example: “9961010”)
+<br>• PublicTON - abbreviated (example: “17”)
+<br>• PrivateTON - unknown
+<br>• PrivateTON - level 3 regional (example: “41396557321”)
+<br>• PrivateTON - level 2 regional (example: “96557321”)
+<br>• PrivateTON - level 1 regional (example: “557321”)
+<br>• PrivateTON - local (example: “321”)
+<br>• PrivateTON - abbreviated (example: “2”)
+<br>• Other (other numbering plans)
+<br>• Generic (the notation is unknown)</dl>
+</td>
+</tr>
+
+<tr>
+<td>
+<dl>!</dl>
+</td>
+
+<td>
+<dl>This exclamation mark character represents the start of a Sub-Address(SA)
+string. If the “!” character is not present then there will be no sub-address
+associated with this Device Identifier string. The terminationcharacter
+for the sub-address string will be the next key character foundin the string
+or null.</dl>
+</td>
+</tr>
+
+<tr>
+<td>
+<dl>&amp;</dl>
+</td>
+
+<td>
+<dl>The ampersand symbol represents the start of a Call Appearance(CA)
+string. It is added to the logical element’s device identifier to uniquely
+identify an addressable standard appearance. The value of the string is
+switching function specific. The valid characters for the call appearance
+string are 0-9. The termination character for the call appearance string
+will be the next key character found in the string or null. Refer to 6.1.3.2.1,
+“Appearance”.</dl>
+</td>
+</tr>
+
+<tr>
+<td>
+<dl>/</dl>
+</td>
+
+<td>
+<dl>The slash symbol represents the start of a physical element extension
+(EXT) string. It is added to the logical element’s device identifier to
+uniquely identify a bridged appearance. Its value is the physical element’s
+device identifier that is associated with the appearance. The termination
+character for the physical element extension string will be the next key
+character found in the string or null. Refer to 6.1.3.2.1, “Appearance”.</dl>
+</td>
+</tr>
+
+<tr>
+<td>
+<dl>%</dl>
+</td>
+
+<td>
+<dl>The percent sign represents the start of an Agent ID (AID) string.
+This string represents an ACD agent identifier associated with a device.
+This string may be present when the computing function wants to focus a
+service at a specific agent identifier that is associated with a device
+or when the switching function generates an event that is associated with
+a particular device and agent. The valid characters for the agent identifier
+string are A-Z and 0-9. If the “%” character is not present then there
+will be no agent identifier associated with this Device Identifier string.The
+termination character for the agent identifier string will be the next
+key character found in the string or null.</dl>
+</td>
+</tr>
+
+<tr>
+<td>
+<dl>NM</dl>
+</td>
+
+<td>
+<dl>The name string (NM) represents the person associated with the device.This
+string can be used for selecting a Device Identifier associated with a
+user or for logging and informational purposes. The name string may contain
+any character.</dl>
+</td>
+</tr>
+</table>
+
+<h4>
+Example:</h4>
+• If the Device Identifier is PublicTON International, then the string
+can be “N14089961010”.
+<br>• If the Device Identifier is PublicTON Subscriber, then the string
+can be “N&lt;9961010>John Smith”.
+<h4>
+Functional Requirements:</h4>
+1. This format shall always contain at least a directory number string
+or an agent ID string.
+<br>2. The interpretation of additional digits beyond those that are required
+to reach a destination are switching
+<br>function specific.
+<br>3. When there is more than one bridged appearance associated with a
+single physical element (see 6.1.3.3.6,
+<br>“Hybrid”, on page 19 for an example) there are two methods for representing
+these appearances: One is to
+<br>have a unique call appearance (CA) and physical element extension (EXT)
+combination for each appearance
+<br>where EXT is used to represent the given physical element and CA is
+used to represent multiple appearances
+<br>associated with the same physical element. The other is to have a single
+EXT for each appearance,
+<br>independently of their association with the physical element. In either
+case, the resulting Device Identifier is
+<br>unique for the given appearance.
+<br>&nbsp;
+<h3>
+10.1.3 Device Number</h3>
+<b>Generic Format:</b>
+<p>The Device Number format represents a Device Identifier using an integer.
+The
+integer shall be maximum size of
+<br>four octets.
+<br>&nbsp;
+<h2>
+10.2 Functional Requirements</h2>
+1. If the switching function detects a problem with a Device Identifier,
+the service will be rejected with a
+<br>negative acknowledgement.
+<br>2. The switching function may use any format in service acknowledgements
+and events.
+<br>3. For Device Identifiers in service requests, the computing function
+should check the deviceIDFormat parameter
+<br>in a capabilities exchange service to determine:
+<dl>• Which formats are supported.
+<br>• For the Switching Function Representation format, which notations
+are supported.
+<br>• For the Diallable Digits format, which special characters are supported.</dl>
+4. When providing a null Device Identifier, the Diallable Digits Format
+is used.</dl>
+
+</body>
+</html>

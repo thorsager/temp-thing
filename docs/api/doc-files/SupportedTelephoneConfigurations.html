@@ -1,0 +1,51 @@
+<h2>Telephone Configurations Controlled by Communication Manager API</h2>
+The Communication Manager API can control the following types of
+Communication Manager telephones and extensions
+when they are administered for softphone access:
+<table border>
+	<tr>
+		<th>Telephone Configuration</th>
+		<th>Administered Set Type</th>
+		<th>Administered Port Address</th>
+		<th>Affect on Physical Telephone</th>
+	</tr>
+	<tr>
+		<td>DCP telephone</td>
+		<td>Any DCP type that can be administered for softphone access</td>
+		<td>Physical port address, such as 1B0201.</td>
+		<td>If an application requests exclusive control,
+		the telephone either goes dead or becomes a TTI set,
+		depending on how it is administered.
+		After the application relinquishes control,
+		control goes back to the DCP telephone.
+		<p />
+		If an application requests shared control,
+		the telephone stays active.</td>
+	</tr>
+	<tr>
+		<td>DCP extension administered without hardware (AWOH)</td>
+		<td>Any DCP type that can be administered for softphone access</td>
+		<td>&quot;X&quot;</td>
+		<td>Not applicable</td>
+	</tr>
+	<tr>
+		<td>IP telephone that is logged in</td>
+		<td>Any IP type that can be administered for softphone access</td>
+		<td>Internal software port address, such as S00031, is automatically assigned.</td>
+		<td>If an application requests exclusive control,
+		the IP telephone is logged off.
+		When the application relinquishes control,
+		the IP telephone must be powered off and on again to be logged back
+		on.
+		<p />
+		If an application requests shared control,
+		the telephone stays active.
+		</td>
+	</tr>
+	<tr>
+		<td>IP extension without hardware (i.e., no IP telephone logged in using that extension)</td>
+		<td>Any IP type that can be administered for softphone access</td>
+		<td>Internal software port address, such as S00031, is automatically assigned. </td>
+		<td>Not applicable</td>
+	</tr>
+</table>

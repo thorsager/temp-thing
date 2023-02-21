@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mapping>
+
+    <!-- Include XSD changes between 4.2 and 4.1 -->
+    <include href="v42To41mapping.xml" />
+
+    <class name="com.avaya.csta.binding.GetCallInformationResponse" auto-complete="false">
+        <description>Default mapping for class com.avaya.csta.binding.GetCallInformationResponse</description>
+        <map-to xml="GetCallInformationResponse" ns-uri="http://www.avaya.com/csta"/>
+        <field name="recordingExtension" type="string" required="false"
+            direct="false" transient="false">
+            <bind-xml name="recordingExtension" node="element" reference="false"/>
+        </field>
+        <field name="stateOfCall" type="integer" required="false"
+            direct="false" transient="false">
+            <bind-xml name="stateOfCall" node="element" reference="false"/>
+        </field>
+        <field name="incoming" type="boolean" required="false"
+            direct="false" transient="false">
+            <bind-xml name="incoming" node="element" reference="false"/>
+        </field>
+        <field name="vdnExtension" type="string" required="false"
+            direct="false" transient="false">
+            <bind-xml name="vdnExtension" node="element" reference="false"/>
+        </field>
+        <field name="agentName" type="string" required="false"
+            direct="false" transient="false">
+            <bind-xml name="agentName" node="element" reference="false"/>
+        </field>
+        <field name="agentStationExtension" type="string"
+            required="false" direct="false" transient="false">
+            <bind-xml name="agentStationExtension" node="element" reference="false"/>
+        </field>
+        <field name="so_active" type="boolean" required="false"
+            direct="false" transient="false">
+            <bind-xml name="so_active" node="element" reference="false"/>
+        </field>
+        <field name="callId" type="integer" required="false"
+            direct="false" transient="false">
+            <bind-xml name="callId" node="element" reference="false"/>
+        </field>
+        <field name="stationName" type="string" required="false"
+            direct="false" transient="false">
+            <bind-xml name="stationName" node="element" reference="false"/>
+        </field>
+        <field name="agentLoginID" type="string" required="false"
+            direct="false" transient="false">
+            <bind-xml name="agentLoginID" node="element" reference="false"/>
+        </field>
+        <field name="incomingTrunkCall" type="boolean" required="false"
+            direct="false" transient="false">
+            <bind-xml name="incomingTrunkCall" node="element" reference="false"/>
+        </field>
+        <field name="vdnName" type="string" required="false"
+            direct="false" transient="false">
+            <bind-xml name="vdnName" node="element" reference="false"/>
+        </field>
+        <field name="recordingExtensionName" type="string"
+            required="false" direct="false" transient="false">
+            <bind-xml name="recordingExtensionName" node="element" reference="false"/>
+        </field>
+        <field name="universalCallIdStr" type="string" required="false"
+            direct="false" transient="true">
+            <bind-xml name="universal-call-id-str" node="element" reference="false"/>
+        </field>
+        <field name="universalCallId" type="long" required="false"
+            direct="false" transient="false">
+            <bind-xml name="universalCallId" node="element" reference="false"/>
+        </field>
+    </class>
+
+    <class name="com.avaya.csta.binding.GetDeviceId" auto-complete="false">
+        <description>Default mapping for class com.avaya.csta.binding.GetDeviceId</description>
+        <map-to xml="GetDeviceId" ns-uri="http://www.avaya.com/csta"/>
+        <field name="controllableByOtherSessions" type="boolean"
+            required="false" direct="false" transient="true">
+            <bind-xml name="controllable-by-other-sessions" node="element" reference="false"/>
+        </field>
+        <field name="switchName" type="string" required="false"
+            direct="false" transient="false">
+            <bind-xml name="switchName" node="element" reference="false"/>
+        </field>
+        <field name="switchIPInterface" type="string" required="false"
+            direct="false" transient="false">
+            <bind-xml name="switchIPInterface" node="element" reference="false"/>
+        </field>
+        <field name="extension" type="string" required="false"
+            direct="false" transient="false">
+            <bind-xml name="extension" node="element" reference="false"/>
+        </field>
+    </class>
+
+</mapping>

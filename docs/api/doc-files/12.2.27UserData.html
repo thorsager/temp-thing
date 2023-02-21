@@ -1,0 +1,68 @@
+<!doctype html public "-//w3c//dtd html 4.0 transitional//en">
+<html>
+<head>
+   <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+   <meta name="Author" content="Sandy Burke Slowey">
+   <meta name="GENERATOR" content="Mozilla/4.76 [en] (Windows NT 5.0; U) [Netscape]">
+   <title>12.2.27 User Data</title>
+</head>
+<body>
+<i>This description is taken from ECMA-269, Section 12.2.27,
+"User Data".</i>
+<h4>
+12.2.27 UserData</h4>
+The UserData parameter type contains computing sub-domain to computing
+sub-domain data. Note that the capabilities exchange services return the
+maximum length of the user data for a switching function.
+<p>User Data is described further in <a href="6.1.4.4UserData.html">6.1.4.4UserData</a>.
+Also, refer to <a href="12.2.10CorrelatorData.html">12.2.10CorrelatorData</a>.&nbsp;
+Annex B defines one possible mechanism for delivering user data through
+an external ISDN network.
+<h4>
+Format</h4>
+This parameter type is an octet string. The maximum length supported by
+the switching function is provided via the capabilities exchange services.
+<h4>
+Functional Requirements</h4>
+
+<ol>
+<li>
+The ability to send User Data, the timing of when user data can be sent,
+and the size of user data, is dependent upon the switching function’s capabilities
+and the underlying network (such as ISDN).</li>
+
+<li>
+Unlike correlator data, User Data is not attached to a call for the life
+of the call. User Data that has been associated with a primary or secondary
+call does not get retained with a resulting conference or transferred call.</li>
+
+<li>
+The switching function reflects the delivery of User Data in the call control
+events that result from the switching function or network carrying out
+the call control activity with which the User Data was associated. When
+the switching function receives user data independent of call activity
+(i.e., Send User Information service), the User Data is provided in the
+Call Information event.</li>
+
+<li>
+User data addresses a specific user in a call (e.g. the initially called
+device). The delivery and propagation of the user data to other devices
+inside the switching sub-domain in regards to features that apply to the
+call (e.g. forwarding, do not disturb) is switching function dependent.</li>
+
+<li>
+When this data is being attached to a call through a service request, its
+association shall be completed prior to any state transitions resulting
+from the request. Thus any state transition events which contain this parametershall
+contain the&nbsp; information passed on the request.</li>
+
+<li>
+If a computing function issues a Snapshot Call service after a service
+request has been issued with this information, but prior to the switching
+function making any state transitions, it is switching function specific
+as to what will be returned in the positive acknowledgement with regards
+to this parameter.</li>
+</ol>
+
+</body>
+</html>

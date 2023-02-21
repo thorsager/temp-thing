@@ -1,0 +1,280 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mapping>
+
+    <!-- Include XSD changes between 4.0 and 4.1 -->
+    <include href="v41To40mapping.xml" />
+
+    <!-- XSD differences between CSTA Edition 3 and 2 -->
+    <class name="ch.ecma.csta.binding.MonitorFilter" auto-complete="false">
+        <description>Default mapping for class ch.ecma.csta.binding.MonitorFilter</description>
+        <map-to xml="MonitorFilter" ns-uri="http://www.ecma-international.org/standards/ecma-323/csta/ed3"/>
+        <field name="logicalDeviceFeature"
+            type="ch.ecma.csta.binding.LogicalDeviceFeatureEvents"
+            required="false" direct="false" transient="false">
+            <bind-xml name="logicalDeviceFeature" node="element" reference="false"/>
+        </field>
+        <field name="physicalDeviceFeature"
+            type="ch.ecma.csta.binding.PhysicalDeviceFeatureEvents"
+            required="false" direct="false" transient="false">
+            <bind-xml name="physicalDeviceFeature" node="element" reference="false"/>
+        </field>
+        <field name="maintenance"
+            type="ch.ecma.csta.binding.DeviceMaintenanceEvents"
+            required="false" direct="false" transient="false">
+            <bind-xml name="maintenance" node="element" reference="false"/>
+        </field>
+        <field name="callAssociated"
+            type="ch.ecma.csta.binding.CallAssociatedEvents"
+            required="false" direct="false" transient="false">
+            <bind-xml name="callAssociated" node="element" reference="false"/>
+        </field>
+        <field name="callcontrol"
+            type="ch.ecma.csta.binding.CallControlEvents"
+            required="false" direct="false" transient="false">
+            <bind-xml name="callcontrol" node="element" reference="false"/>
+        </field>
+        <field name="voice" type="ch.ecma.csta.binding.VoiceEvents"
+            required="false" direct="false" transient="false">
+            <bind-xml name="voiceUnit" node="element" reference="false"/>
+        </field>
+        <field name="mediaAttachment"
+            type="ch.ecma.csta.binding.MediaAttachmentEvents"
+            required="false" direct="false" transient="false">
+            <bind-xml name="mediaAttachment" node="element" reference="false"/>
+        </field>
+    </class>
+    <class name="ch.ecma.csta.binding.VoiceEvents" auto-complete="false">
+        <description>Default mapping for class ch.ecma.csta.binding.VoiceEvents</description>
+        <map-to xml="VoiceUnitEvents" ns-uri="http://www.ecma-international.org/standards/ecma-323/csta/ed3"/>
+        <field name="started" type="boolean" required="false"
+            direct="false" transient="false">
+            <bind-xml name="started" node="element" reference="false"/>
+        </field>
+        <field name="speechDetected" type="boolean" required="false"
+            direct="false" transient="true">
+            <bind-xml name="speechDetected" node="element" reference="false"/>
+        </field>
+        <field name="record" type="boolean" required="false"
+            direct="false" transient="false">
+            <bind-xml name="record" node="element" reference="false"/>
+        </field>
+        <field name="voiceErrorOccurred" type="boolean" required="false"
+            direct="false" transient="true">
+            <bind-xml name="voice-error-occurred" node="element" reference="false"/>
+        </field>
+        <field name="silenceTimeoutExpired" type="boolean"
+            required="false" direct="false" transient="true">
+            <bind-xml name="silence-timeout-expired" node="element" reference="false"/>
+        </field>
+        <field name="interruptionDetected" type="boolean"
+            required="false" direct="false" transient="true">
+            <bind-xml name="interruption-detected" node="element" reference="false"/>
+        </field>
+        <field name="suspendPlay" type="boolean" required="false"
+            direct="false" transient="false">
+            <bind-xml name="suspendPlay" node="element" reference="false"/>
+        </field>
+        <field name="notRecognized" type="boolean" required="false"
+            direct="false" transient="true">
+            <bind-xml name="not-recognized" node="element" reference="false"/>
+        </field>
+        <field name="emptied" type="boolean" required="false"
+            direct="false" transient="true">
+            <bind-xml name="emptied" node="element" reference="false"/>
+        </field>
+        <field name="voiceAttributesChanged" type="boolean"
+            required="false" direct="false" transient="false">
+            <bind-xml name="voiceAttributesChange" node="element" reference="false"/>
+        </field>
+        <field name="stop" type="boolean" required="false"
+            direct="false" transient="false">
+            <bind-xml name="stop" node="element" reference="false"/>
+        </field>
+        <field name="dtmfDetected" type="boolean" required="false"
+            direct="false" transient="true">
+            <bind-xml name="dtmf-detected" node="element" reference="false"/>
+        </field>
+        <field name="bookmarkReached" type="boolean" required="false"
+            direct="false" transient="true">
+            <bind-xml name="bookmark-reached" node="element" reference="false"/>
+        </field>
+        <field name="review" type="boolean" required="false"
+            direct="false" transient="false">
+            <bind-xml name="review" node="element" reference="false"/>
+        </field>
+        <field name="recognized" type="boolean" required="false"
+            direct="false" transient="true">
+            <bind-xml name="recognized" node="element" reference="false"/>
+        </field>
+        <field name="completed" type="boolean" required="false"
+            direct="false" transient="true">
+            <bind-xml name="completed" node="element" reference="false"/>
+        </field>
+        <field name="play" type="boolean" required="false"
+            direct="false" transient="false">
+            <bind-xml name="play" node="element" reference="false"/>
+        </field>
+        <field name="suspendRecord" type="boolean" required="false"
+            direct="false" transient="false">
+            <bind-xml name="suspendRecord" node="element" reference="false"/>
+        </field>
+    </class>
+    <class name="ch.ecma.csta.binding.UniversalFailure" auto-complete="false">
+        <description>Default mapping for class ch.ecma.csta.binding.UniversalFailure</description>
+        <map-to xml="UniversalFailure" ns-uri="http://www.ecma-international.org/standards/ecma-323/csta/ed3"/>
+        <field name="privateErrorCode" type="string" required="false"
+            direct="false" transient="true">
+            <bind-xml name="private-error-code" node="element" reference="false"/>
+        </field>
+        <field name="unspecified" type="ch.ecma.csta.binding.Empty"
+            required="false" direct="false" transient="false">
+            <bind-xml name="unspecified" node="element" reference="false"/>
+        </field>
+    </class>
+    <class name="ch.ecma.csta.binding.CrossRefIDorSnapshotCallData" auto-complete="false">
+        <description>Default mapping for class ch.ecma.csta.binding.CrossRefIDorSnapshotCallData</description>
+        <map-to xml="CrossRefIDorSnapshotData" ns-uri="http://www.ecma-international.org/standards/ecma-323/csta/ed3"/>
+        <field name="snapshotData"
+            type="ch.ecma.csta.binding.SnapshotCallData"
+            required="false" direct="false" transient="false">
+            <bind-xml name="snapshotCallData" node="element" reference="false"/>
+        </field>
+        <field name="serviceCrossRefID" type="string" required="false"
+            direct="false" transient="false">
+            <bind-xml name="serviceCrossRefID" node="element" reference="false"/>
+        </field>
+    </class>
+    <class name="ch.ecma.csta.binding.CrossRefIDorSnapshotDeviceData" auto-complete="false">
+        <description>Default mapping for class ch.ecma.csta.binding.CrossRefIDorSnapshotDeviceData</description>
+        <map-to xml="CrossRefIDorSnapshotData" ns-uri="http://www.ecma-international.org/standards/ecma-323/csta/ed3"/>
+        <field name="snapshotData"
+            type="ch.ecma.csta.binding.SnapshotDeviceDataList"
+            required="false" direct="false" transient="false">
+            <bind-xml name="snapshotDeviceData" node="element" reference="false"/>
+        </field>
+        <field name="serviceCrossRefID" type="string" required="false"
+            direct="false" transient="false">
+            <bind-xml name="serviceCrossRefID" node="element" reference="false"/>
+        </field>
+    </class>
+    <class name="ch.ecma.csta.binding.SnapshotDeviceResponse" auto-complete="false">
+        <description>Default mapping for class ch.ecma.csta.binding.SnapshotDeviceResponse</description>
+        <map-to xml="SnapshotDeviceResponse" ns-uri="http://www.ecma-international.org/standards/ecma-323/csta/ed3"/>
+        <field name="extensions"
+            type="ch.ecma.csta.binding.CSTACommonArguments"
+            required="false" direct="false" transient="false">
+            <bind-xml name="extensions" node="element" reference="false"/>
+        </field>
+        <field name="crossRefIDorSnapshotDeviceData"
+            type="ch.ecma.csta.binding.CrossRefIDorSnapshotDeviceData"
+            required="false" direct="false" transient="false">
+            <bind-xml name="crossRefIDorSnapshotDeviceData"
+                node="element" reference="false"/>
+        </field>
+    </class>
+    <class name="ch.ecma.csta.binding.SnapshotCallResponse" auto-complete="false">
+        <description>Default mapping for class ch.ecma.csta.binding.SnapshotCallResponse</description>
+        <map-to xml="SnapshotCallResponse" ns-uri="http://www.ecma-international.org/standards/ecma-323/csta/ed3"/>
+        <field name="messageInfo"
+            type="ch.ecma.csta.binding.MessageInfo" required="false"
+            direct="false" transient="false">
+            <bind-xml name="messageInfo" node="element" reference="false"/>
+        </field>
+        <field name="associatedCalledDevice"
+            type="ch.ecma.csta.binding.AssociatedCalledDeviceID"
+            required="false" direct="false" transient="false">
+            <bind-xml name="associatedCalledDevice" node="element" reference="false"/>
+        </field>
+        <field name="mediaCallCharacteristics"
+            type="ch.ecma.csta.binding.MediaCallCharacteristics"
+            required="false" direct="false" transient="false">
+            <bind-xml name="mediaCallCharacteristics" node="element" reference="false"/>
+        </field>
+        <field name="associatedCallingDevice"
+            type="ch.ecma.csta.binding.AssociatedCallingDeviceID"
+            required="false" direct="false" transient="false">
+            <bind-xml name="associatedCallingDevice" node="element" reference="false"/>
+        </field>
+        <field name="correlatorData"
+            type="ch.ecma.csta.binding.CorrelatorData" required="false"
+            direct="false" transient="false">
+            <bind-xml name="correlatorData" node="element" reference="false"/>
+        </field>
+        <field name="callCharacteristics"
+            type="ch.ecma.csta.binding.CallCharacteristics"
+            required="false" direct="false" transient="false">
+            <bind-xml name="callCharacteristics" node="element" reference="false"/>
+        </field>
+        <field name="callLinkageData"
+            type="ch.ecma.csta.binding.CallLinkageData" required="false"
+            direct="false" transient="false">
+            <bind-xml name="callLinkageData" node="element" reference="false"/>
+        </field>
+        <field name="languagePreferences" type="string" required="false"
+            direct="false" transient="false">
+            <bind-xml name="languagePreferences" node="element" reference="false"/>
+        </field>
+        <field name="crossRefIDorSnapshotCallData"
+            type="ch.ecma.csta.binding.CrossRefIDorSnapshotCallData"
+            required="false" direct="false" transient="false">
+            <bind-xml name="crossRefIDorSnapshotCallData" node="element" reference="false"/>
+        </field>
+        <field name="callingDevice"
+            type="ch.ecma.csta.binding.CallingDeviceID" required="false"
+            direct="false" transient="false">
+            <bind-xml name="callingDevice" node="element" reference="false"/>
+        </field>
+        <field name="extensions"
+            type="ch.ecma.csta.binding.CSTACommonArguments"
+            required="false" direct="false" transient="false">
+            <bind-xml name="extensions" node="element" reference="false"/>
+        </field>
+        <field name="deviceHistory"
+            type="ch.ecma.csta.binding.DeviceHistory" required="false"
+            direct="false" transient="false">
+            <bind-xml name="deviceHistory" node="element" reference="false"/>
+        </field>
+        <field name="subjectOfCall" type="string" required="false"
+            direct="false" transient="false">
+            <bind-xml name="subjectOfCall" node="element" reference="false"/>
+        </field>
+        <field name="calledDevice"
+            type="ch.ecma.csta.binding.CalledDeviceID" required="false"
+            direct="false" transient="false">
+            <bind-xml name="calledDevice" node="element" reference="false"/>
+        </field>
+    </class>
+
+    <class name="com.avaya.csta.binding.LoginInfo" auto-complete="false">
+        <description>Default mapping for class com.avaya.csta.binding.LoginInfo</description>
+        <map-to xml="loginInfo" ns-uri="http://www.avaya.com/csta"/>
+        <field name="forceLogin" type="boolean" required="false"
+            direct="false" transient="false">
+            <bind-xml name="forceLogin" node="element" reference="false"/>
+        </field>
+        <field name="e911" type="string" required="false" direct="false" transient="false">
+            <bind-xml name="e911" node="element" reference="false"/>
+        </field>
+        <field name="password" type="string" required="false"
+            direct="false" transient="false">
+            <bind-xml name="password" node="element" reference="false"/>
+        </field>
+        <field name="telecommuterExtension" type="string"
+            required="false" direct="false" transient="false">
+            <bind-xml name="telecommuterExtension" node="element" reference="false"/>
+        </field>
+        <field name="sharedControl" type="boolean" required="false"
+            direct="false" transient="false">
+            <bind-xml name="sharedControl" node="element" reference="false"/>
+        </field>
+        <field name="mediaMode" type="com.avaya.csta.binding.types.MediaMode" required="false"
+            direct="false" transient="true">
+            <bind-xml name="mediaMode" node="element" reference="false"/>
+        </field>
+        <field name="dependencyMode" type="com.avaya.csta.binding.types.DependencyMode" required="false"
+            direct="false" transient="true">
+            <bind-xml name="dependencyMode" node="element" reference="false"/>
+        </field>
+    </class>
+    
+</mapping>

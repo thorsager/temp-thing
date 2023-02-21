@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mapping>
+
+    <!-- XSD changes between 8.0.1 and 7.1.1 releases -->
+    <include href="v801To711mapping.xml" />
+
+	<!-- 7.1.0 does not have ChannelType, drop any ChannelType related field -->
+    <class name="com.avaya.csta.binding.DeliveredEventPrivateData" auto-complete="false">
+        <description>Default mapping for class com.avaya.csta.binding.DeliveredEventPrivateData</description>
+        <map-to xml="DeliveredEventPrivateData" ns-uri="http://www.avaya.com/csta"/>
+        <field name="trunkGroup" type="string" required="false"
+            direct="false" transient="false">
+            <bind-xml name="trunkGroup" node="element" reference="false"/>
+        </field>
+        <field name="trunkMember" type="string" required="false"
+            direct="false" transient="false">
+            <bind-xml name="trunkMember" node="element" reference="false"/>
+        </field>
+        <field name="acdGroup" type="ch.ecma.csta.binding.DeviceID" required="false"
+            direct="false" transient="false">
+            <bind-xml name="acdGroup" node="element" reference="false"/>
+        </field>
+        <field name="lookAheadInfo" type="com.avaya.csta.binding.LookAheadInfo" required="false"
+            direct="false" transient="false">
+            <bind-xml name="lookAheadInfo" node="element" reference="false"/>
+        </field>
+        <field name="userEnteredCode" type="com.avaya.csta.binding.UserEnteredCode" required="false"
+            direct="false" transient="false">
+            <bind-xml name="userEnteredCode" node="element" reference="false"/>
+        </field>
+        <field name="distributingDevice" type="ch.ecma.csta.binding.SubjectDeviceID" required="false"
+            direct="false" transient="false">
+            <bind-xml name="distributingDevice" node="element" reference="false"/>
+        </field>
+        <field name="distributingVDN" type="ch.ecma.csta.binding.SubjectDeviceID" required="false"
+            direct="false" transient="false">
+            <bind-xml name="distributingVDN" node="element" reference="false"/>
+        </field>
+        <field name="originalCallInfo" type="com.avaya.csta.binding.OriginalCallInfo" required="false"
+            direct="false" transient="false">
+            <bind-xml name="originalCallInfo" node="element" reference="false"/>
+        </field>
+	<field name="channelType" type="com.avaya.csta.binding.types.ChannelType" required="false"
+            direct="false" transient="true">
+            <bind-xml name="channelType" node="element" reference="false"/>
+        </field>
+    </class>
+	<class name="com.avaya.csta.binding.EstablishedEventPrivateData" auto-complete="false">
+        <description>Default mapping for class com.avaya.csta.binding.EstablishedEventPrivateData</description>
+	<map-to xml="EstablishedEventPrivateData" ns-uri="http://www.avaya.com/csta"/>
+        <field name="trunkGroup" type="string" required="false"
+            direct="false" transient="false">
+            <bind-xml name="trunkGroup" node="element" reference="false"/>
+        </field>
+        <field name="trunkMember" type="string" required="false"
+            direct="false" transient="false">
+            <bind-xml name="trunkMember" node="element" reference="false"/>
+        </field>
+        <field name="acdGroup" type="ch.ecma.csta.binding.DeviceID" required="false"
+            direct="false" transient="false">
+            <bind-xml name="acdGroup" node="element" reference="false"/>
+        </field>
+        <field name="lookAheadInfo" type="com.avaya.csta.binding.LookAheadInfo" required="false"
+            direct="false" transient="false">
+            <bind-xml name="lookAheadInfo" node="element" reference="false"/>
+        </field>
+        <field name="userEnteredCode" type="com.avaya.csta.binding.UserEnteredCode" required="false"
+            direct="false" transient="false">
+            <bind-xml name="userEnteredCode" node="element" reference="false"/>
+        </field>
+        <field name="reason" type="com.avaya.csta.binding.types.ReasonCode" required="false"
+            direct="false" transient="false">
+            <bind-xml name="reason" node="element" reference="false"/>
+        </field>
+        <field name="distributingDevice" type="ch.ecma.csta.binding.SubjectDeviceID" required="false"
+            direct="false" transient="false">
+            <bind-xml name="distributingDevice" node="element" reference="false"/>
+        </field>
+        <field name="distributingVDN" type="ch.ecma.csta.binding.SubjectDeviceID" required="false"
+            direct="false" transient="false">
+            <bind-xml name="distributingVDN" node="element" reference="false"/>
+        </field>
+        <field name="originalCallInfo" type="com.avaya.csta.binding.OriginalCallInfo" required="false"
+            direct="false" transient="false">
+            <bind-xml name="originalCallInfo" node="element" reference="false"/>
+        </field>
+        <field name="channelType" type="com.avaya.csta.binding.types.ChannelType" required="false"
+            direct="false" transient="true">
+            <bind-xml name="channelType" node="element" reference="false"/>
+        </field>
+    </class>
+	
+	<!-- 7.1.0 does not have pendingWorkMode and pendingReasonCode, drop any related field -->
+	<class name="com.avaya.csta.binding.AgentNotReadyEventPrivateData" auto-complete="false">
+        <description>Default mapping for class com.avaya.csta.binding.AgentNotReadyEventPrivateData</description>
+        <map-to xml="AgentNotReadyEventPrivateData" ns-uri="http://www.avaya.com/csta"/>
+        <field name="reasonCode" type="short" required="false"
+            direct="false" transient="false">
+            <bind-xml name="reasonCode" node="element" reference="false"/>
+        </field>
+        <field name="pendingWorkMode" type="com.avaya.csta.binding.types.WorkMode" required="false"
+            direct="false" transient="true">
+            <bind-xml name="pending-workMode" node="element" reference="false"/>
+        </field>
+	<field name="pendingReasonCode" type="short" required="false"
+            direct="false" transient="true">
+            <bind-xml name="pending-reasonCode" node="element" reference="false"/>
+        </field>
+    </class>
+	<class name="com.avaya.csta.binding.AgentReadyEventPrivateData" auto-complete="false">
+        <description>Default mapping for class com.avaya.csta.binding.AgentReadyEventPrivateData</description>
+        <map-to xml="AgentReadyEventPrivateData" ns-uri="http://www.avaya.com/csta"/>
+        <field name="reasonCode" type="short" required="false"
+            direct="false" transient="false">
+            <bind-xml name="reasonCode" node="element" reference="false"/>
+        </field>
+        <field name="pendingWorkMode" type="com.avaya.csta.binding.types.WorkMode" required="false"
+            direct="false" transient="true">
+            <bind-xml name="pending-workMode" node="element" reference="false"/>
+        </field>
+	<field name="pendingReasonCode" type="short" required="false"
+            direct="false" transient="true">
+            <bind-xml name="pending-reasonCode" node="element" reference="false"/>
+        </field>
+    </class>
+	<class name="com.avaya.csta.binding.AgentWorkingAfterCallEventPrivateData" auto-complete="false">
+        <description>Default mapping for class com.avaya.csta.binding.AgentWorkingAfterCallEventPrivateData</description>
+        <map-to xml="AgentWorkingAfterCallEventPrivateData" ns-uri="http://www.avaya.com/csta"/>
+        <field name="reasonCode" type="short" required="false"
+            direct="false" transient="false">
+            <bind-xml name="reasonCode" node="element" reference="false"/>
+        </field>
+	<field name="pendingWorkMode" type="com.avaya.csta.binding.types.WorkMode" required="false"
+            direct="false" transient="true">
+            <bind-xml name="pending-workMode" node="element" reference="false"/>
+        </field>
+	<field name="pendingReasonCode" type="short" required="false"
+            direct="false" transient="true">
+            <bind-xml name="pending-reasonCode" node="element" reference="false"/>
+        </field>
+    </class>
+</mapping>
+

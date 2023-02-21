@@ -1,0 +1,72 @@
+<!doctype html public "-//w3c//dtd html 4.0 transitional//en">
+<html>
+<head>
+   <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+   <meta name="Author" content="Sandy Burke Slowey">
+   <meta name="GENERATOR" content="Mozilla/4.76 [en] (Windows NT 5.0; U) [Netscape]">
+   <title>6.8.3 Recall</title>
+</head>
+<body>
+<i>This description is taken from ECMA-269, Section 6.8.3,
+"Recall".</i>
+<h3>
+6.8.3 Recall</h3>
+The Recall feature is a trigger that is associated with a call after a
+specific call control feature has been executed.
+When this feature is executed, it redirects or presents the call either
+back to the device on who’s behalf the call
+control feature was executed or to a switching function administrated
+destination associated with the specific call
+control feature. There are several types of call control services which
+can have this feature associated with them. For
+example:
+<ul>
+<li>
+Hold Call</li>
+
+<li>
+Transfer Call</li>
+
+<li>
+Single Step Transfer Call</li>
+
+<li>
+Deflect Call</li>
+
+<li>
+Park Call</li>
+</ul>
+The event sequence associated with this feature is the Diverted event (only
+if the device to whom the call is being
+redirected is not already in the call) and the first event associated
+with the delivery of the call to the new device or
+the device that performed the call control feature. The characteristics
+for this event sequence are:
+<ul>
+<li>
+The Diverted event will have an appropriate recall event cause. This event
+is only reported when the device to whom the call is being redirected is
+not already in the call (i.e., a recall to a connection that is already
+in the call). (Note that the reporting of this event is dependent on the
+capabilities of the switching function.)</li>
+
+<li>
+The first event associated with the delivery of the call to the new device
+(i.e. Delivered), or the device that performed the call control feature
+will have an appropriate recall event cause (in either the Delivered, Held,
+Queued, etc.). If the lastRedirectionDevice parameter is available in this
+event, and the call was actually redirected to another device outside the
+current call, then it will be provided based upon the definition for this
+parameter. (Refer to the definition of the Call Control events and lastRedirectionDevice
+parameter for more details.) If the callingDevice parameter is available
+in this event, it may contain the same callingDevice information prior
+to the recall. This means that if the calling device is the Subject Device
+of the event, then the information in the callingDevice and corresponding
+SubjectDeviceID (e.g., Delivered event SubjectDeviceID = alertingDevice)
+parameters may be the same. If the switching function does not retain this
+information with the call, then the callingDevice parameter will contain
+a value of “Not Known”.</li>
+</ul>
+
+</body>
+</html>

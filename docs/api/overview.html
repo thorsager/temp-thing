@@ -1,0 +1,198 @@
+<body>
+This is the API reference for the Application Enablement Services Device, Media and Call Control API.
+This API provides an open, standards-based, Java programming interface
+for developing applications that draw on the power of Avaya Communication
+Manager software.
+The API provides a form of first-party call control for developing applications
+that:
+<ul><li>gain exclusive or shared control of soft-phone enabled Communication Manager
+		telephones or extensions</li>
+	<li>perform telephone operations</li>
+	<li>handle media</li>
+	<li>detect and collect DTMF tones</li>
+	<li>produce an encrypted media via RegistrationServices</li>
+</ul>
+These device- and media-control capabilities allow you to develop applications
+that harness the extensive Avaya Communication Manager feature set available
+via button presses, feature access codes, and media streams.
+<p />
+Device, Media and Call Control API is a software-only connector that provides
+connectivity between applications and Communication Manager.
+The connector consists of two components:
+<dl>
+	<dt><b>Connector Server Software</b></dt>
+	<dd>Communicates with both the application and Communication Manager over
+		an IP connection.
+		Runs on a Linux machine separate from Communication Manager.</dd>
+	<dt><b>Connector Client API Library</b></dt>
+	<dd>A Java class library that provides a set of device- and media-control
+		services.
+		Transmits the applications requests to the connector server and
+		translates the connector servers responses and asynchronous events
+		into Java events for the application.
+		The library is part of the software development kit (SDK) which also
+		includes sample source code, a programmers guide, and this API
+		reference (Javadoc).</dd>
+</dl>
+<p />
+In an application, software objects, called DMCC soft-phones, are used to
+represent soft-phone enabled, Communication Manager telephones or extensions.
+Using the API, the application first requests exclusive control of a
+telephone/extension in order to be given a DMCC soft-phone object.
+The application can then perform telephone operations on the DMCC soft-phone
+object.
+This in turn causes the connector to make requests of Communication Manager
+to perform those operations as if they were manually occurring on a physical
+telephone.
+In addition, Communication Manager asynchronously notifies the connector of
+any event that occurs
+on the telephone or extension, such as when a lamp becomes lit.
+The connector then notifies the application of the event.
+In this manner, an application can make calls, receive calls, record calls,
+send announcements, apply tones, detect digits, and redirect the media.
+<p />
+More specifically, the connector client API library in this release
+provides the following capabilities:
+<ul><li>Instantiate a DMCC soft-phone that gains exclusive or shared
+		control of a soft-phone-enabled,
+		Communication Manager telephone/extension using
+		<code>RegistrationServices</code>.</li>
+	<li>Activate or control a DMCC soft-phones physical elements using
+		<code>PhysicalDeviceServices</code>.
+		This includes pressing buttons, going off hook, and going
+		on hook.</li>
+	<li>Determine the status of a DMCC soft-phones physical elements using
+		<code>PhysicalDeviceServices</code>.
+		This includes obtaining the status of buttons, displays,
+		lamps, the hook-switch, the message waiting indicator, and the
+		ringer.</li>
+	<li>Detect events on a DMCC soft-phones physical elements using
+		<code>PhysicalDeviceListener</code>.
+		This includes detecting events on the displays, lamps, and
+		ringer.</li>
+	<li>Process the media in any of the following ways:
+	<ul><li>Record media from a call into a Wave file using
+			<code>VoiceUnitServices</code>.
+			Wave files can be in PCM, G.711, G.729, or G.729A CODEC file
+			formats.</li>
+		<li>Dub a recording with the contents of another compatible Wave file
+			using <code>ExtendedVoiceUnitServices</code></li>
+		<li>Play a voice announcement or tone, which is pre-recorded in a Wave
+			file, on a device
+			using <code>VoiceUnitServices</code>.</li>
+		<li>Detect in-band or out-of-band DTMF digits using
+			<code>ToneDetectionServices</code>
+			(in-band DTMF detection not available for
+			G.729/G.729A codecs).</li>
+		<li>Collect a series of in-band or out-of-band DTMF digits using
+			<code>ToneCollectionServices</code>
+			(in-band DTMF collection not available for
+			G.729/G.729A codecs).</li>.
+	</ul>
+		For all of the above media processing, the Wave files are placed on,
+		or retrieved from, the connector server hardware.</li>
+	<li>Direct the media to another IP address to bypass the connector server
+		media processing
+		using <code>RegistrationServices</code>.</li>
+</ul>
+<p />
+The types of applications that can be supported in this release include,
+but are not limited to:
+<ul><li>IP call recording applications</li>
+	<li>IP soft-phone applications</li>
+	<li>Messaging applications</li>
+	<li>Alert and notify applications</li>
+	<li>Specialized console applications</li>
+	<li>Other applications that require device- or physical-level telephony
+	control with media</li>
+</ul>
+The connector can control certain Communication Manager DCP and IP
+telephones and extensions
+when they are administered for soft-phone access.
+See <a href="doc-files/SupportedTelephoneConfigurations.html">
+Supported Telephone Configurations</a>.
+<p />
+This API supports the ECMA telephony standard called Computer Supported
+Telecommunications Applications (CSTA) Phase III.
+This standard is specified in publication ECMA-269,
+<i>Services for Computer Supported Telecommunications Applications (CSTA)
+Phase III</i>, 5th Edition, December 2002 found at
+<a href="http://www.ecma-international.org/">http://www.ecma-international.org</a>).
+The Device, Media and Call Control API library provides a Java-binding to a subset of
+the CSTA XML protocol whose specifications can be found in publication ECMA-323,
+<i>XML Protocol for Computer Supported Telecommunications Applications (CSTA)
+Phase III</i>, 2nd Edition, December 2002.
+<p />
+<b><font size="+1">Finding the information you need</font></b>
+<p />
+<b>High-level vs. Low-level Classes:</b>
+When you bring up Javadoc, you see a list of classes in the lower, left-hand
+frame.
+Note that it lists only the API's "high-level" interfaces and classes.
+The "lower-level" interfaces and classes (Java beans) can only be reached from
+the high-level services that use them.
+For example, to see the documentation for the <tt>ButtonPress</tt> request
+class,
+go to <tt>PhysicalDeviceServices</tt> and then click on the
+<tt>ButtonPress</tt> link
+shown in the <tt>pressButton()</tt> method description.
+<p /><b>Implementation Specifics:</b>
+As you use this documentation, be aware that the implementation specifics you
+need to know
+are reflected in the Javadoc of the high-level services
+(such as <tt>PhysicalDeviceServices</tt>) and <i>not</i> in the Javadoc for
+Java beans
+that represent requests and responses
+(such as <tt>PressButton</tt> and <tt>PressButtonResponse</tt>).
+Implementation specifics that you need to know include:
+<ul><li>Avaya values that must be used in fields that CSTA has specified as
+"switching function specific".</li>
+<li>which of the CSTA multiple choices Avaya has implemented</li>
+<li>which of the CSTA optional parameters Avaya has implemented</li>
+</ul>
+The Javadoc for the Java beans reflect the full CSTA specification and
+not the subset that Avaya has implemented.
+Refer to the high-level services that use a Java bean to determine
+implementation specifics of that class.
+<p />
+<b><font size="+1">Basics of writing an application</font></b>
+<p />
+The outline of your application code will look something like this:
+<ol>
+<li>Get an instance of <code>ServiceProvider</code> and then
+use its <code>get</code>XXX<code>Service</code> methods to obtain
+instances of any of the services you wish to use.</li>
+<li>For the desired device, get a device ID object using the <code>getDeviceID()</code> method
+of <code>DeviceServices</code>.
+This ID will be used hereafter to refer to this device.</li>
+<li>Register the device you want to have exclusive or shared control over
+using the <code>registerTerminal()</code>
+method of <code>RegistrationServices</code>.</li>
+<li>Operate on the device using:
+	<ul><li><code>PhysicalDeviceServices</code></li>
+	<li><code>VoiceUnitServices</code></li>
+	<li><code>ExtendedVoiceUnitServices</code></li>
+	<li><code>ToneDetectionServices</code></li>
+	<li><code>ToneCollectionServices</code></li>
+	</ul>
+</li>
+<li>When finished with the device, unregister the device using the
+<code>unregisterTerminal()</code> method of <code>RegistrationServices</code> and
+release the device using the <code>releaseDeviceID()</code> method of
+<code>DeviceServices</code>.</li>
+</ol>
+To be asynchronously notified of events, your application must also implement
+the following:
+<ol><li>For each type of event you wish to act upon for any given service,
+implement a call-back method for every possible event in a
+listener interface (such as <code>PhysicalDeviceListener</code>)
+or implement select call-backs in an adapter
+(such as <code>PhysicalDeviceAdapter</code>).</li>
+<li>Add your listener to each device
+using MonitoringServices' <code>add</code><i>XXX</i><code>Listener</code> method
+(such as <code>monitoringDeviceServices.addPhysicalDeviceListener()</code>).</li>
+</ol>
+<p />
+For further guidance on how to write an application,
+see the <i>Application Enablement Services Device, Media and Call Control API Java Programmer's Guide</i>.
+</body>

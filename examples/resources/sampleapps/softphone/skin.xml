@@ -1,0 +1,313 @@
+<Skin>
+
+<bitmaps basepath="sampleapps/softphone/">
+	<bitmap name="back" file="back.gif"/>
+	<bitmap name="buttons" file="buttons.gif"/>
+	<bitmap name="handset" file="handset.gif"/>
+	<bitmap name="subbacks" file="sub_backs.gif"/>
+</bitmaps>
+
+<!-- 
+
+- The 'norm' image should always be specified first
+- For the 'norm' image, all fields must be specified for the source tag
+- The rect tag will use the source tag fields if they are absent
+- Subsequent images can leave off the rect tag or even both the source and rect tags. 
+  The values for the norm image will be used in their place.
+
+- the default mode is "" (none)
+
+- the 'ignoreinput' flag specifes that hit testing (clicks) on this particular component should be ignored.
+  this is particularly useful for background images, as almost all clicks would fall within one.
+
+-->
+
+<!-- MAIN WINDOW -->
+
+<component name="background" mode="main" ignoreinput="true">
+	<img type="norm"><source name="back" x="0" y="0" width="240" height="268"/><rect x="0" y="0"/></img>
+</component>
+
+<component name="back.display" mode="main" ignoreinput="true">
+	<img type="norm"><source name="subbacks" x="0" y="121" width="237" height="33"/><rect x="2" y="0"/></img>
+</component>
+
+<component name="exit" mode="main">
+	<img type="norm"><source name="buttons" x="0" y="166" width="16" height="14"/><rect x="223" y="253"/></img>
+	<img type="push"><source name="buttons" x="16" y="166"/></img>
+</component>
+
+<component name="handset" mode="main">
+	<img type="norm"><source name="handset" x="0" y="0" width="66" height="226"/><rect x="0" y="39"/></img>
+</component>
+
+<component name="handset.offhook" ignoreinput="true">
+	<img type="norm"><source name="handset" x="66" y="0" width="66" height="226"/><rect x="0" y="39"/></img>
+</component>
+
+<component name="voicemail" mode="main">
+	<img type="norm"><source name="buttons" x="143" y="108" width="25" height="27"/><rect x="215" y="128"/></img>
+	<img type="push"><source name="buttons" x="143" y="135"/></img>
+</component>
+
+<component name="conf" mode="main">
+	<img type="norm"><source name="buttons" x="0" y="108" width="33" height="22"/><rect x="67" y="166"/></img>
+	<img type="push"><source name="buttons" x="70" y="108"/></img>
+</component>
+
+<component name="drop" mode="main">
+	<img type="norm"><source name="buttons" x="33" y="108" width="33" height="22"/><rect x="68" y="133"/></img>
+	<img type="push"><source name="buttons" x="103" y="108"/></img>
+</component>
+
+<component name="trans" mode="main">
+	<img type="norm"><source name="buttons" x="33" y="130" width="33" height="22"/><rect x="68" y="200"/></img>
+	<img type="push"><source name="buttons" x="103" y="130"/></img>
+</component>
+
+<component name="hold" mode="main">
+	<img type="norm"><source name="buttons" x="0" y="130" width="33" height="22"/><rect x="68" y="234"/></img>
+	<img type="push"><source name="buttons" x="70" y="130"/></img>
+</component>
+
+
+<!-- KEYPAD BUTTONS -->
+
+<component name="keypad.1" mode="main">
+	<img type="norm"><source name="buttons" x="0" y="0" width="28" height="27"/><rect x="106" y="131"/></img>
+	<img type="push"><source name="buttons" x="84" y="0"/></img>
+</component>
+
+<component name="keypad.2" mode="main">
+	<img type="norm"><source name="buttons" x="28" y="0" width="28" height="27"/><rect x="146" y="131"/></img>
+	<img type="push"><source name="buttons" x="112" y="0"/></img>
+</component>
+
+<component name="keypad.3" mode="main">
+	<img type="norm"><source name="buttons" x="56" y="0" width="28" height="27"/><rect x="186" y="131"/></img>
+	<img type="push"><source name="buttons" x="140" y="0"/></img>
+</component>
+
+<component name="keypad.4" mode="main">
+	<img type="norm"><source name="buttons" x="0" y="27" width="28" height="27"/><rect x="106" y="163"/></img>
+	<img type="push"><source name="buttons" x="84" y="27"/></img>
+</component>
+
+<component name="keypad.5" mode="main">
+	<img type="norm"><source name="buttons" x="28" y="27" width="28" height="27"/><rect x="146" y="163"/></img>
+	<img type="push"><source name="buttons" x="112" y="27"/></img>
+</component>
+
+<component name="keypad.6" mode="main">
+	<img type="norm"><source name="buttons" x="56" y="27" width="28" height="27"/><rect x="186" y="163"/></img>
+	<img type="push"><source name="buttons" x="140" y="27"/></img>
+</component>
+
+<component name="keypad.7" mode="main">
+	<img type="norm"><source name="buttons" x="0" y="54" width="28" height="27"/><rect x="106" y="196"/></img>
+	<img type="push"><source name="buttons" x="84" y="54"/></img>
+</component>
+
+<component name="keypad.8" mode="main">
+	<img type="norm"><source name="buttons" x="28" y="54" width="28" height="27"/><rect x="146" y="196"/></img>
+	<img type="push"><source name="buttons" x="112" y="54"/></img>
+</component>
+
+<component name="keypad.9" mode="main">
+	<img type="norm"><source name="buttons" x="56" y="54" width="28" height="27"/><rect x="186" y="196"/></img>
+	<img type="push"><source name="buttons" x="140" y="54"/></img>
+</component>
+
+<component name="keypad.10" mode="main">
+	<img type="norm"><source name="buttons" x="0" y="81" width="28" height="27"/><rect x="106" y="228"/></img>
+	<img type="push"><source name="buttons" x="84" y="81"/></img>
+</component>
+
+<component name="keypad.0" mode="main">
+	<img type="norm"><source name="buttons" x="28" y="81" width="28" height="27"/><rect x="146" y="228"/></img>
+	<img type="push"><source name="buttons" x="112" y="81"/></img>
+</component>
+
+<component name="keypad.11" mode="main">
+	<img type="norm"><source name="buttons" x="56" y="81" width="28" height="27"/><rect x="186" y="228"/></img>
+	<img type="push"><source name="buttons" x="140" y="81"/></img>
+</component>
+
+
+<!-- FEATURE BUTTONS -->
+
+<component name="feat.7" mode="main">
+	<img type="norm"><source name="buttons" x="0" y="152" width="70" height="15"/><rect x="80" y="35"/></img>
+	<img type="push"><source name="buttons" x="70" y="152"/></img>
+</component>
+
+<component name="feat.8" mode="main">
+	<img type="norm"><source name="buttons" x="0" y="152" width="70" height="15"/><rect x="80" y="50"/></img>
+	<img type="push"><source name="buttons" x="70" y="152"/></img>
+</component>
+
+<component name="feat.9" mode="main">
+	<img type="norm"><source name="buttons" x="0" y="152" width="70" height="15"/><rect x="80" y="65"/></img>
+	<img type="push"><source name="buttons" x="70" y="152"/></img>
+</component>
+
+<component name="feat.10" mode="main">
+	<img type="norm"><source name="buttons" x="0" y="152" width="70" height="15"/><rect x="80" y="80"/></img>
+	<img type="push"><source name="buttons" x="70" y="152"/></img>
+</component>
+
+<component name="feat.11" mode="main">
+	<img type="norm"><source name="buttons" x="0" y="152" width="70" height="15"/><rect x="80" y="95"/></img>
+	<img type="push"><source name="buttons" x="70" y="152"/></img>
+</component>
+
+<component name="feat.12" mode="main">
+	<img type="norm"><source name="buttons" x="0" y="152" width="70" height="15"/><rect x="80" y="110"/></img>
+	<img type="push"><source name="buttons" x="70" y="152"/></img>
+</component>
+
+<component name="feat.13" mode="main">
+	<img type="norm"><source name="buttons" x="0" y="152" width="70" height="15"/><rect x="169" y="35"/></img>
+	<img type="push"><source name="buttons" x="70" y="152"/></img>
+</component>
+
+<component name="feat.14" mode="main">
+	<img type="norm"><source name="buttons" x="0" y="152" width="70" height="15"/><rect x="169" y="50"/></img>
+	<img type="push"><source name="buttons" x="70" y="152"/></img>
+</component>
+
+<component name="feat.15" mode="main">
+	<img type="norm"><source name="buttons" x="0" y="152" width="70" height="15"/><rect x="169" y="65"/></img>
+	<img type="push"><source name="buttons" x="70" y="152"/></img>
+</component>
+
+<component name="feat.16" mode="main">
+	<img type="norm"><source name="buttons" x="0" y="152" width="70" height="15"/><rect x="169" y="80"/></img>
+	<img type="push"><source name="buttons" x="70" y="152"/></img>
+</component>
+
+<component name="feat.17" mode="main">
+	<img type="norm"><source name="buttons" x="0" y="152" width="70" height="15"/><rect x="169" y="95"/></img>
+	<img type="push"><source name="buttons" x="70" y="152"/></img>
+</component>
+
+<component name="feat.18" mode="main">
+	<img type="norm"><source name="buttons" x="0" y="152" width="70" height="15"/><rect x="169" y="110"/></img>
+	<img type="push"><source name="buttons" x="70" y="152"/></img>
+</component>
+
+
+<!-- BUTTON LAMPS -->
+
+<component name="lamp.off">
+	<img type="norm"><source name="buttons" x="136" y="108" width="6" height="6"/></img>
+</component>
+
+<component name="lamp.green">
+	<img type="norm"><source name="buttons" x="136" y="114" width="6" height="6"/></img>
+</component>
+
+<component name="lamp.red">
+	<img type="norm"><source name="buttons" x="136" y="120" width="6" height="6"/></img>
+</component>
+
+
+
+<component name="lamp.red.7" mode="main">
+	<img type="norm"><source name="buttons" x="136" y="108" width="6" height="6"/><rect x="70" y="35"/></img>
+</component>
+
+<component name="lamp.red.8" mode="main">
+	<img type="norm"><source name="buttons" x="136" y="108" width="6" height="6"/><rect x="70" y="50"/></img>
+</component>
+
+<component name="lamp.red.9" mode="main">
+	<img type="norm"><source name="buttons" x="136" y="108" width="6" height="6"/><rect x="70" y="65"/></img>
+</component>
+
+<component name="lamp.red.10" mode="main">
+	<img type="norm"><source name="buttons" x="136" y="108" width="6" height="6"/><rect x="70" y="80"/></img>
+</component>
+
+<component name="lamp.red.11" mode="main">
+	<img type="norm"><source name="buttons" x="136" y="108" width="6" height="6"/><rect x="70" y="95"/></img>
+</component>
+
+<component name="lamp.red.12" mode="main">
+	<img type="norm"><source name="buttons" x="136" y="108" width="6" height="6"/><rect x="70" y="110"/></img>
+</component>
+
+<component name="lamp.red.13" mode="main">
+	<img type="norm"><source name="buttons" x="136" y="108" width="6" height="6"/><rect x="159" y="35"/></img>
+</component>
+
+<component name="lamp.red.14" mode="main">
+	<img type="norm"><source name="buttons" x="136" y="108" width="6" height="6"/><rect x="159" y="50"/></img>
+</component>
+
+<component name="lamp.red.15" mode="main">
+	<img type="norm"><source name="buttons" x="136" y="108" width="6" height="6"/><rect x="159" y="65"/></img>
+</component>
+
+<component name="lamp.red.16" mode="main">
+	<img type="norm"><source name="buttons" x="136" y="108" width="6" height="6"/><rect x="159" y="80"/></img>
+</component>
+
+<component name="lamp.red.17" mode="main">
+	<img type="norm"><source name="buttons" x="136" y="108" width="6" height="6"/><rect x="159" y="95"/></img>
+</component>
+
+<component name="lamp.red.18" mode="main">
+	<img type="norm"><source name="buttons" x="136" y="108" width="6" height="6"/><rect x="159" y="110"/></img>
+</component>
+
+
+<component name="lamp.green.7" mode="main">
+	<img type="norm"><source name="buttons" x="136" y="108" width="6" height="6"/><rect x="70" y="42"/></img>
+</component>
+
+<component name="lamp.green.8" mode="main">
+	<img type="norm"><source name="buttons" x="136" y="108" width="6" height="6"/><rect x="70" y="57"/></img>
+</component>
+
+<component name="lamp.green.9" mode="main">
+	<img type="norm"><source name="buttons" x="136" y="108" width="6" height="6"/><rect x="70" y="72"/></img>
+</component>
+
+<component name="lamp.green.10" mode="main">
+	<img type="norm"><source name="buttons" x="136" y="108" width="6" height="6"/><rect x="70" y="87"/></img>
+</component>
+
+<component name="lamp.green.11" mode="main">
+	<img type="norm"><source name="buttons" x="136" y="108" width="6" height="6"/><rect x="70" y="102"/></img>
+</component>
+
+<component name="lamp.green.12" mode="main">
+	<img type="norm"><source name="buttons" x="136" y="108" width="6" height="6"/><rect x="70" y="117"/></img>
+</component>
+
+<component name="lamp.green.13" mode="main">
+	<img type="norm"><source name="buttons" x="136" y="108" width="6" height="6"/><rect x="159" y="42"/></img>
+</component>
+
+<component name="lamp.green.14" mode="main">
+	<img type="norm"><source name="buttons" x="136" y="108" width="6" height="6"/><rect x="159" y="57"/></img>
+</component>
+
+<component name="lamp.green.15" mode="main">
+	<img type="norm"><source name="buttons" x="136" y="108" width="6" height="6"/><rect x="159" y="72"/></img>
+</component>
+
+<component name="lamp.green.16" mode="main">
+	<img type="norm"><source name="buttons" x="136" y="108" width="6" height="6"/><rect x="159" y="87"/></img>
+</component>
+
+<component name="lamp.green.17" mode="main">
+	<img type="norm"><source name="buttons" x="136" y="108" width="6" height="6"/><rect x="159" y="102"/></img>
+</component>
+
+<component name="lamp.green.18" mode="main">
+	<img type="norm"><source name="buttons" x="136" y="108" width="6" height="6"/><rect x="159" y="117"/></img>
+</component>
+
+</Skin>

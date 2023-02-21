@@ -1,0 +1,88 @@
+<!doctype html public "-//w3c//dtd html 4.0 transitional//en">
+<html>
+<head>
+   <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+   <meta name="Author" content="Sandy Burke Slowey">
+   <meta name="GENERATOR" content="Mozilla/4.76 [en] (Windows NT 5.0; U) [Netscape]">
+   <title>12.2.10 Correlator Data</title>
+</head>
+<body>
+<i>This description is taken from ECMA-269, Section
+12.2.10, "Correlator Data".</i>
+<h3>
+12.2.10 CorrelatorData</h3>
+The CorrelatorData parameter type contains computing sub-domain specific
+data that has been or will be attached to a call that the computing function
+is controlling or monitoring. This allows the computing function to associate
+its own information with a call and, as a result, share it with other computing
+functions. For example, this information might be a key to a database entry,
+a computing function command sequence, file name, etc. This feature is
+useful when calls are moving from one computing function to another in
+a distributed computer network or from one switching sub-domain to another.
+<p>See&nbsp; <a href="6.1.4.3CorrelatorData.html">6.1.4.3CorrelatorData</a>
+for specific rules on the use of Correlator Data. ECMA 269, Annex B defines
+one possible mechanism for delivering correlator data through an external
+ISDN network.
+<h4>
+Format</h4>
+This parameter type is an octet string. The maximum length supported by
+the switching function is provided via the capabilities exchange services.
+<h4>
+Functional Requirements</h4>
+
+<ol>
+<li>
+The correlator data will stay with the call as long as the call exists.
+This means that the correlator data will be presented to the computing
+function on events that have this parameter and that the switching sub-domain
+supports.</li>
+
+<li>
+The correlator data can be changed during the life of the call by any of
+the services that has the parameter or by using the Associate Data service.</li>
+
+<li>
+The way to clear the data on the call is to pass a null string of data
+on one of the above mentioned services. (The actual parameter is passed
+but the content is a null string.) If correlator data is cleared, then
+the switching function notifies the computing function by sending a null
+string.</li>
+
+<li>
+See&nbsp; <a href="6.1.4.3CorrelatorData.html">6.1.4.3CorrelatorData</a>
+for a description of how Correlator Data is inherited by calls during a
+conference or transfer.</li>
+
+<li>
+If the computing function issues the Consultation Call service without
+correlator data, initially the secondary call will not have correlator
+data associated with it, as it does not inherit any correlator data that
+may be associated with the primary call. If the computing function issues
+the Consultation Call service with correlator data, this data is for the
+secondary call only and does not affect any correlator data that may be
+currently associated with the primary call.</li>
+
+<li>
+When correlator data is associated with a call, for all Call Control events
+listed in ECMA 269, Section 17.2 except for the Bridged, Call Cleared,
+Connection Cleared, Held, and the Retrieved events (i.e. call events that
+may indicate that a device becomes part of a call) shall include the correlator
+data (if supported). Correlator data can optionally be included with the
+four event exceptions listed above.</li>
+
+<li>
+When this data is being attached to a call through a service request, its
+association shall be completed prior to any state transitions resulting
+from the request. Thus any state transition events which contain this parameter
+shall contain the information passed on the request.</li>
+
+<li>
+If a computing function issues a Snapshot Call service after a service
+request has been issued with this information, but prior to the switching
+function making any state transitions, it is switching function specific
+as to what will be returned in the positive acknowledgement with regards
+to this parameter.</li>
+</ol>
+
+</body>
+</html>

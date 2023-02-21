@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mapping>
+
+    <!-- Include XSD changes between 6.3.3 and 6.3.1 -->
+    <include href="v633To631mapping.xml" />
+    
+    <class
+        name="com.avaya.csta.binding.EndpointUnregisteredEvent" auto-complete="false">
+        <description>Default mapping for class com.avaya.csta.binding.EndpointRegistrationStateEvents</description>
+        <map-to xml="EndpointUnregisteredEvent" ns-uri="http://www.avaya.com/csta"/>
+        <field name="monitorCrossRefID" type="string" required="false"
+            direct="false" transient="false">
+            <bind-xml name="monitorCrossRefID" node="element" reference="false"/>
+        </field>
+        <field name="device" type="ch.ecma.csta.binding.SubjectDeviceID" required="false"
+            direct="false" transient="false">
+            <bind-xml name="device" node="element" reference="false"/>
+        </field>
+        <field name="eptDevice" type="ch.ecma.csta.binding.SubjectDeviceID" required="false"
+            direct="false" transient="false">
+            <bind-xml name="eptDevice" node="element" reference="false"/>
+        </field>
+        <field name="endpointAddress" type="string" required="false"
+            direct="false" transient="false">
+            <bind-xml name="endpointAddress" node="element" reference="false"/>
+        </field>
+        <field name="dependencyMode" type="com.avaya.csta.binding.types.DependencyMode" required="false"
+            direct="false" transient="false">
+            <bind-xml name="dependencyMode" node="element" reference="false"/>
+        </field>
+        <field name="reason" type="string" required="false"
+            direct="false" transient="false">
+            <bind-xml name="reason" node="element" reference="false"/>
+        </field>
+        <field name="code" type="com.avaya.csta.binding.types.UnregReason" required="false"
+            direct="false" transient="false">
+            <bind-xml name="code" node="element" reference="false"/>
+        </field>
+        <field name="setType" type="string" required="false"
+            direct="false" transient="false">
+            <bind-xml name="setType" node="element" reference="false"/>
+        </field>
+        <field name="signallingProtocolType" type="com.avaya.csta.binding.types.SignallingProtocolType" required="false"
+            direct="false" transient="true">
+            <bind-xml name="signallingProtocolType" node="element" reference="false"/>
+        </field>
+        <field name="serviceState" type="com.avaya.csta.binding.types.ServiceState" required="false"
+            direct="false" transient="false">
+            <bind-xml name="serviceState" node="element" reference="false"/>
+        </field>
+    </class>
+    
+    <class
+        name="com.avaya.csta.binding.RegisterTerminalEventsFilter" auto-complete="false">
+        <description>Default mapping for class com.avaya.csta.binding.RegisterTerminalEventsFilter</description>
+        <map-to xml="RegisterTerminalEventsFilter" ns-uri="http://www.avaya.com/csta"/>
+        <field name="unregistered" type="boolean" required="false"
+            direct="false" transient="false">
+            <bind-xml name="unregistered" node="element" reference="false"/>
+        </field>
+        <field name="reregistered" type="boolean"
+            required="false" direct="false" transient="true">
+            <bind-xml name="reregistered" node="element" reference="false"/>
+        </field>
+    </class>
+
+</mapping>

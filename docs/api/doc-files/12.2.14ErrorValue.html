@@ -1,0 +1,1134 @@
+<!doctype html public "-//w3c//dtd html 4.0 transitional//en">
+<html>
+<head>
+   <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+   <meta name="Author" content="Sandy Burke Slowey">
+   <meta name="GENERATOR" content="Mozilla/4.76 [en] (Windows NT 5.0; U) [Netscape]">
+   <title>12.2.14 Error Value</title>
+</head>
+<body>
+<i>This description is taken from ECMA-269, Section
+12.2.14, "Error Value".</i>
+<h3>
+12.2.14 ErrorValue</h3>
+The ErrorValue parameter type defines error codes.
+<h1>
+<b><font size=+1>Format</font></b></h1>
+This parameter contains the following:
+<ul>
+<li>
+Error Category - Operation, Security, State Incompatibility, System Resource
+Availability, Subscribed Resource Availability, Performance Management,
+Private Data, and Unspecified.</li>
+
+<li>
+Error Value - A value describing the error. The following text describes
+the various categories and values within each category.</li>
+</ul>
+Note that the error code hierarchy described in ECMA 269, Section 9.3.2,
+Figure 9-1, “ErrorValue Hierarchy,” is represented by indented bullet lists
+in the following sections, each indent representing an additional error
+code level.
+<h4>
+12.2.14.1 Operation Errors</h4>
+Error values in this category shall indicate an error in the Service Request.
+This category shall include one of the following specific error values:
+<blockquote>
+<li>
+generic - The server has detected an operational error in the service request
+and the error is either not a specified Operation Class error or the switching
+function cannot be more specific.</li>
+</blockquote>
+
+<blockquote>
+<blockquote>
+<li>
+atLeastOneConditionalParameterNotProvided - The service definition specifies
+a set of conditional parameters, at least one of which shall be provided.
+No parameter from this set was present.</li>
+
+<li>
+featureAlreadySet - The feature cannot be set because it is already set.</li>
+
+<li>
+invalidMessageIdentifier - There is no message with the specified Message
+Identifier.</li>
+
+<li>
+invalidParameterValue - A value for a parameter is invalid. A value is
+in the specified range but invalid in the circumstance where it is used.</li>
+
+<blockquote>
+<li>
+invalidAccountCode - The account code parameter is invalid.</li>
+
+<li>
+invalidAgentGroup - An agent group is invalid.</li>
+
+<li>
+invalidAgentIdentifier - An agent identifier is invalid.</li>
+
+<li>
+invalidAgentPassward - An agent password is invalid.</li>
+
+<li>
+invalidAgentState - An agent state setting is invalid.</li>
+
+<li>
+invalidAlertTime - The alertTime parameter is invalid.</li>
+
+<li>
+invalidAllocationState - The service request (MakePredictiveCall) specified
+an allocation state that is invalid in the present circumstance.</li>
+
+<li>
+invalidAuthorizationCode - The authorization code is invalid.</li>
+
+<li>
+invalidAutoAnswer - The autoanswer parameter is invalid.</li>
+
+<li>
+invalidBitRate - The bitRate parameter is invalid.</li>
+
+<li>
+invalidButtonIdentifier - A button identifier is invalid.</li>
+
+<li>
+invalidButtonLabel - A button label is invalid.</li>
+
+<li>
+invalidCallType - The callType parameter is invalid.</li>
+
+<li>
+invalidConnectionRate - The connectionRate parameter is invalid.</li>
+
+<li>
+invalidConsultPurpose - The consultPurpose parameter is not valid.</li>
+
+<li>
+invalidCorrelatorData - The Correlator Data parameter is not valid.</li>
+
+<li>
+invalidCrossReferenceIdentifier - The service request specified a Cross
+Reference Identifier that is not in use.</li>
+
+<li>
+invalidDelayTolerance - The delayTolerance parameter is invalid.</li>
+</blockquote>
+
+<li>
+invalidDestination - The service request contains a destination that is
+invalid. Note that for a forwarding destination, the switching function
+returns the invalidForwardingDestination error. This occurs when the calledDirectoryNumber,
+newDestination, or routeSelected parameter is invalid.</li>
+
+<li>
+invalidDestinationDetect - the destinationDetect parameter is invalid.</li>
+
+<li>
+invalidDoNotDisturb - The do not disturb setting is invalid.</li>
+
+<li>
+invalidEscapeCrossReferenceIdentifier - The escape registration request
+identifier is invalid.</li>
+
+<li>
+invalidFeature - The service request specified a feature that is invalid.
+Often, this is because the switching or computing function does not support
+the requested feature.</li>
+
+<li>
+invalidFile - The specified file is not accessible.</li>
+
+<li>
+invalidFlowDirection - The flowDirection parameter is invalid.</li>
+
+<li>
+invalidForwardingDestination - The forwarding destination device is not
+valid.</li>
+
+<li>
+invalidForwardingFlag - The forwarding flag is invalid.</li>
+
+<li>
+invalidForwardingType - The forwarding type is invalid.</li>
+
+<li>
+invalidHookswitchType - A hookswitch type is invalid.</li>
+
+<li>
+invalidHookswitchComponent - A hookswitch component is invalid.</li>
+
+<li>
+invalidLampIdentifier - A lamp identifier is invalid.</li>
+
+<li>
+invalidLampMode - A lamp mode is invalid.</li>
+
+<li>
+invalidMessageWaitingSetting - A message waiting setting is invalid. The
+switching function returns this error for the messageWaitingOn parameter.</li>
+
+<li>
+invalidMicrophoneGain - A microphone gain setting is invalid.</li>
+
+<li>
+invalidMicrophoneMute - A microphone mute setting is invalid.</li>
+
+<li>
+invalidMonitorCrossReferenceIdentifier - The service request specified
+a monitor cross reference identifier that is not in use.</li>
+
+<li>
+invalidMonitorFilter - The monitor filter is invalid.</li>
+
+<li>
+invalidMonitorObject - The monitor object is invalid.</li>
+
+<li>
+invalidMonitorType - The monitor type is invalid.</li>
+
+<li>
+invalidNumberOfChannels - The numberOfChannels parameter is invalid.</li>
+
+<li>
+invalidParticipationType - The participationType parameter is invalid.</li>
+
+<li>
+invalidRemainRetry - The value of the remainRetry parameter is invalid.</li>
+
+<li>
+invalidRingCount - The ring count setting is invalid.</li>
+
+<li>
+invalidRingPattern - A ring pattern setting is invalid.</li>
+
+<li>
+invalidRingVolume - A ring volume setting is invalid.</li>
+
+<li>
+invalidRouteingAlgorithm - The computing function does not support the
+routeing algorithm.</li>
+
+<li>
+invalidRouteingCrossReferenceIdentifier - The service request specified
+a routeing cross reference identifier that is not in use.</li>
+
+<li>
+invalidRouteRegistrationCrossReferenceIdentifier - The route registration
+request identifier is</li>
+
+<li>
+invalid.</li>
+
+<li>
+invalidSpeakerVolume - A speaker volume is invalid.</li>
+
+<li>
+invalidSpeakerMute - A speaker mute setting is invalid.</li>
+
+<li>
+invalidSwitchingSubdomainCharsType - The switchingSubDomainCCIEType parameter
+is invalid.</li>
+
+<li>
+invalidObjectType - A parameter in the service request contains an object
+type that is not the defined object type for that parameter.</li>
+
+<blockquote>
+<li>
+invalidActiveCallObject - The value supplied for activeCall or one of its
+components is not of the proper type.</li>
+
+<li>
+invalidCalledDeviceObjectType - The value supplied for calledDevice is
+not of the proper type.</li>
+
+<li>
+invalidCallingDeviceObjectType - The value supplied for callingDevice is
+not of the proper type.</li>
+
+<li>
+invalidCallToBePickedUpObjectType - The value supplied for callToBePickedUp
+or one of its components is not of the proper type.</li>
+
+<li>
+invalidCallToDivertObjectType - The value supplied for callToBeDiverted
+is not of the proper type.</li>
+
+<li>
+invalidCallToParkObjectType - The value supplied for callToPark or one
+of its components is not of the proper type.</li>
+
+<li>
+invalidDestinationDeviceObject - The value supplied for newDestination
+in a or one of its components is not of the proper type.</li>
+
+<li>
+invalidHeldCallObject - The value supplied for heldCall or one of its components
+is not of the proper type.</li>
+
+<li>
+invalidMonitorObjectType - The monitorObject type is invalid.</li>
+
+<li>
+invalidParkToObjectType - The value supplied for r parkTo is not of the
+proper type.</li>
+</blockquote>
+
+<li>
+messageIdentifierRequired - The request requires a Message Identifier.</li>
+
+<li>
+notDifferentDevices - Multiple parameters in the service request that shall
+specify different devices do not specify different devices.</li>
+
+<li>
+notSameDevice - Multiple parameters in the service request that shall specify
+the same device do not specify the same device.</li>
+
+<li>
+objectNotKnown - An object parameter (connection, device, or call) has
+a value that is not known.</li>
+
+<ul>
+<li>
+invalidCallIdentifier - A call identifier parameter or a call identifier
+component of a connection identifier parameter is invalid or is not known
+to the switching function.</li>
+
+<ul>
+<li>
+invalidActiveCallIdentifier - The call identifier in the activeCall connection
+does not specify a valid call.</li>
+
+<li>
+invalidHeldCallIdentifier - The call identifier in the heldCall connection
+does not specify a valid call.</li>
+</ul>
+
+<li>
+invalidConnectionIdentifier - A connection identifier or some component
+of the connection identifier is invalid.</li>
+
+<ul>
+<li>
+invalidActiveConnectionIdentifier - The activeCall connection does not
+specify a valid call.</li>
+
+<li>
+invalidHeldConnectionIdentifier - The heldCall connection does not specify
+a valid call.</li>
+</ul>
+
+<li>
+invalidDeviceIdentifier - A device identifier parameter or a device identifier
+component of a connection identifier parameter is invalid or is not known
+to the switching function.</li>
+
+<ul>
+<li>
+invalidActiveDeviceIdentifier - The device identifier in the activeCall
+connection does not specify a valid device.</li>
+
+<li>
+invalidCalledDeviceIdentifier - The called device parameter is invalid.</li>
+
+<li>
+invalidCallingDeviceIdentifier - The calling device parameter is invalid.</li>
+
+<li>
+invalidCallToParkDeviceIdentifier - The device identifier in the callToPark
+connection does not specify a valid device.</li>
+</ul>
+
+<li>
+invalidDestinationDeviceIdentifier - The device identifier in the newDestination
+does not specify a valid device.</li>
+
+<li>
+invalidDivertingDeviceIdentifier - The diverting device identifier is invalid.</li>
+
+<li>
+invalidHeldDeviceIdentifier - The device identifier in the heldCall connection
+does not specify a valid device.</li>
+
+<li>
+invalidParkToDeviceIdentifier - parkTo does not specify a valid device.</li>
+
+<li>
+invalidPickUpDeviceIdentifier - The device identifier in the callToBePickedUp
+does not specify a valid device.</li>
+</ul>
+</blockquote>
+
+<li>
+parameterNotSupported - The switching function does not support a parameter.</li>
+
+<blockquote>
+<li>
+accountCodeNotSupported - The accountCode parameter is not supported.</li>
+
+<li>
+agentGroupNotSupported - The agent group parameter is not supported.</li>
+
+<li>
+agentPasswordNotSupported - The agent password parameter is not supported.</li>
+
+<li>
+agentStateNotSupported - The agent state is not supported.</li>
+
+<li>
+alertTimeNotSupported - The alertTime parameter is not supported.</li>
+
+<li>
+allocationNotSupported - The allocation parameter is not supported.</li>
+
+<li>
+authorisationCodeNotSupported - The authorization code is not supported.</li>
+
+<li>
+autoAnswerNotSupported - The autoAnswer parameter is not supported.</li>
+
+<li>
+bitRateNotSupported - The bitRate parameter is not supported.</li>
+
+<li>
+buttonNotSupported - The button parameter is not supported.</li>
+
+<li>
+callTypeNotSupported - The callType parameter is not supported.</li>
+
+<li>
+charactersToSendNotSupported - The charactersToSend parameter is not supported.</li>
+
+<li>
+connectionRateNotSupported - The connectionRate parameter is not supported.</li>
+
+<li>
+connectionReservationNotSupported. The connectionReservation parameter
+is not supported.</li>
+
+<li>
+consultPurposeNotSupported - The consultPurpose parameter is not supported.</li>
+
+<li>
+correlatorDataNotSupported - The correlator data parameter is not supported.</li>
+
+<li>
+delayToleranceNotSupported - The delayTolerance parameter is not supported.</li>
+
+<li>
+destinationDetectNotSupported - The destinationDetect parameter is not
+supported.</li>
+
+<li>
+digitModeNotSupported - The digitMode parameter is not supported.</li>
+
+<li>
+errorValueNotSupported - The errorValue parameter is not supported.</li>
+
+<li>
+flowDirectionNotSupported - The flowDirection parameter is not supported.</li>
+
+<li>
+forwardingDestinationNotSupported - The forwarding destination parameter
+is not supported.</li>
+
+<li>
+lampNotSupported - The lamp parameter is not supported.</li>
+
+<li>
+monitorTypeNotSupported - The monitor type is not supported.</li>
+
+<li>
+numberOfChannelsNotSupported - The numberOfChannels parameter is not supported.</li>
+
+<li>
+parameterTypeNotSupported - The participationType parameter is not supported.</li>
+
+<li>
+priorityNotSupported - The priority parameter is not supported.</li>
+
+<li>
+privateDataNotSupported - The privateData parameter is not supported.</li>
+
+<li>
+pulseDurationNotSupported - The pulseDuration parameter is not supported.</li>
+
+<li>
+pulseRateNotSupported - The pulseRate parameter is not supported.</li>
+
+<li>
+remainRetryNotSupported - The remainRetry parameter is not supported.</li>
+
+<li>
+ringCountNotSupported - The ringCount parameter is not supported.</li>
+
+<li>
+routeUsedNotSupported - The routeUsed parameter is not supported.</li>
+
+<li>
+securityNotSupported - The security parameter is not supported.</li>
+
+<li>
+switchingSubDomainCCIETypeNotSupported - The switchingSubDomainCCIEType
+parameter is not supported.</li>
+
+<li>
+toneDurationNotSupported - The toneDuration parameter is not supported.</li>
+
+<li>
+securityNotSupported - The security parameter is not supported.</li>
+
+<li>
+sysStatRegIDNotSupported - The sysStatRegID parameter is not supported.</li>
+
+<li>
+userDataNotSupported - The userData parameter is not supported.</li>
+</blockquote>
+
+<li>
+privilegeViolationSpecifiedDevice - Performing the service request would
+result in a privilege violation.</li>
+
+<blockquote>
+<li>
+privilegeViolationActiveDevice - The request would violate a switching
+function restriction on the device activeCall that limits the device in
+some way.</li>
+
+<li>
+privilegeViolationCalledDevice - Performing the service request would violate
+a switching function restriction that limits the called device in some
+way.</li>
+
+<li>
+privilegeViolationCallingDevice - Performing the service request would
+violate a switching function restriction that limits the calling device
+in some way.</li>
+
+<li>
+privilegeViolationCallToParkDevice - The service request would violate
+a switching function restriction on the device in callToPark connection
+that limits the device in some way.</li>
+
+<li>
+privilegeViolationDestinationDevice - The request would violate a switching
+function restriction on the device newDestination that limits the device
+in some way.</li>
+
+<li>
+privilegeViolationOnDivertingDevice - The service request would violate
+a switching function restriction on the diverting device in some way.</li>
+
+<li>
+privilegeViolationHeldDevice - The request would violate a switching function
+restriction on the device in heldCall that limits the device in some way.</li>
+
+<li>
+privilegeViolationOnParkToDevice - The service request would violate a
+switching function restriction on the device parkTo that limits the device
+in some way.</li>
+
+<li>
+privilegeViolationPickupDevice - The request would violate a switching
+function restriction on the device in callToBePickedUp that limits the
+device in some way.</li>
+</blockquote>
+
+<li>
+routeingTimerExpired - The routeing timer or delayed ringback timer expired
+for a routeing request. • 1requestIncompatibleWithObject - The service
+request is not compatible with the corresponding object specified in the
+service request. This error shall not reflect state incompatibility errors
+of an object.</li>
+
+<blockquote>
+<li>
+requestIncompatibleWithConnection - The service request is not compatible
+with a connection specified in the service definition.</li>
+
+<blockquote>
+<li>
+requestIncompatibleWithActiveConnection - The request is incompatible with
+the activeCall connection.</li>
+
+<li>
+requestIncompatibleWithHeldConnection - The request is incompatible with
+the heldCall connection.</li>
+</blockquote>
+
+<li>
+requestIncompatibleWithDevice - The service request is not compatible with
+a device specified in the service request.</li>
+
+<blockquote>
+<li>
+requestIncompatibleWithCalledDevice - The service request is not compatible
+with the called device.</li>
+</blockquote>
+
+<li>
+requestIncompatibleWithCallingDevice - The service request is not compatible
+with the calling device.</li>
+
+<li>
+requestIncompatibleWithSubjectDevice - The service request is not compatible
+with the subject device (not a called or calling device).</li>
+
+<blockquote>
+<li>
+requestIncompatibleWithActiveDevice - The service request is incompatible
+with the device in the activeCall connection.</li>
+
+<li>
+requestIncompatibleWithCallToParkDevice - The service request is not compatible
+with the device in callToPark connection.</li>
+
+<li>
+requestIncompatibleWithDestinationDevice - The service request is incompatible
+with the device in the newDestination connection.</li>
+
+<li>
+requestIncompatibleWithDivertingDevice - The service request is incompatible
+with the device in the callToBeDiverted connection.</li>
+
+<li>
+requestIncompatibleWithHeldDevice - The service request is incompatible
+with the device in the heldCall connection.</li>
+
+<li>
+requestIncompatibleWithMedia - The media type associated with the message
+is incompatible with the associated device.</li>
+
+<li>
+requestIncompatibleWithParkToDevice - The service request is not compatible
+with parkTo.</li>
+
+<li>
+requestIncompatibleWithPickupDevice - The service request is incompatible
+with the device in the callToBePickedUp connection.</li>
+</blockquote>
+</blockquote>
+
+<li>
+serviceNotSupported - The service is not supported. • 1securityViolation
+- The service request violates security. • 1valueOutOfRange - A parameter
+(other than a CSTA object) has a value that is not in the enumeration or
+range specified for that parameter.</li>
+
+<blockquote>
+<li>
+agentStateOutOfRange - An agent state is not one of the defined values.</li>
+
+<li>
+alertTimeOutOfRange - The alertTime parameter has a value that is out of
+its permitted range.</li>
+
+<li>
+allocationOutOfRange - The allocation parameter has a value that is out
+of its permitted range.</li>
+
+<li>
+autoAnswerOutOfRange - The autoAnswer parameter has a value that is out
+of range.</li>
+
+<li>
+bitRateOutOfRange - The bitRate parameter value is out of the defined range.</li>
+
+<li>
+callTypeOutOfRange - The callType parameter value is out of the defined
+range.</li>
+
+<li>
+connectionRateOutOfRange - The connectionRate parameter value is out of
+the defined range.</li>
+
+<li>
+connectionReservationOutOfRange - The connectionReservation parameter has
+a value that is out of range.</li>
+
+<li>
+consultPurposeOutOfRange - The consultPurpose parameter has a value that
+is out of its permitted range.</li>
+
+<li>
+correlatorDataOutOfRange - The length of the correlator data exceeds the
+maximum length that the switching function supports.</li>
+
+<li>
+delayToleranceOutOfRange - The delayTolerance parameter is out of the defined
+range.</li>
+
+<li>
+destinationDetectOutOfRange - The destinationDetect parameter has a value
+that is out of its permitted range.</li>
+
+<li>
+digitModeOutOfRange - The digitMode parameter value is out of the defined
+range.</li>
+
+<li>
+doNotDisturbOutOfRange- The do not disturb setting in the doNotDisturb
+parameter is out of range.</li>
+
+<li>
+flowDirectionOutOfRange - The flowDirection parameter is out of the defined
+range.</li>
+
+<li>
+forwardingFlagOutOfRange - The forwarding flag is out of range.</li>
+
+<li>
+forwardingTypeOutOfRange - The forwardingType parameter is not one of the
+defined values.</li>
+
+<li>
+hookswitchComponentOutOfRange - A hookswitch component is not one of the
+defined components.</li>
+
+<li>
+hookSwithTypeOutOfRange - A hookswitch type is out of range.</li>
+
+<li>
+lampModeOutOfRange - A lamp mode setting is out of range.</li>
+
+<li>
+messageWaitingSettingOutOfRange - A message waiting setting is out of range.
+The switching function returns this error for the messageWaitingOn parameter.</li>
+
+<li>
+micGainOutOfRange - A microphone gain setting is out of range.</li>
+
+<li>
+micMuteOutOfRange - A microphone mute setting is out of range.</li>
+
+<li>
+monitorTypeOutOfRange - The monitor type is not a defined value.</li>
+
+<li>
+numberOfChannelsOutOfRange - The numberOfChannels parameter is out of the
+defined range.</li>
+
+<li>
+participationTypeOutOfRange - the participationType parameter has a value
+that is out of range.</li>
+
+<li>
+pulseDurationOutOfRange- The pulseDuration parameter value is out of range.</li>
+
+<li>
+pulseRateOutOfRange - The pulseRate parameter value is out of range.</li>
+
+<li>
+ringCountOutOfRange - The ring count is out of range.</li>
+
+<li>
+ringPatternOutOfRange - A ring patterns setting is out of range.</li>
+
+<li>
+ringVolumnOutOfRange - A ring volume is out of range.</li>
+
+<li>
+routingAlgorithmOutOfRange - The routeSelAlgorithm is not one of the defined
+values.</li>
+
+<li>
+speakerMuteOutOfRange - A speaker mute setting is out of range.</li>
+
+<li>
+speakerVolumeOutOfRange - A speaker volume is out of range.</li>
+
+<li>
+switchingCcittType - The switchingSubDomainCCIEType parameter is out of
+the defined range.</li>
+
+<li>
+systemStatusOutOfRange - The system status is not one of the defined values.</li>
+
+<li>
+toneCharacterOutOfRange - One of more characters in the charctersToSend
+parameter is not in the</li>
+
+<li>
+permitted set.</li>
+
+<li>
+toneDurationOutOfRange - The toneDuration parameter value is out of range.</li>
+</blockquote>
+</blockquote>
+
+<h4>
+12.2.14.2 Security Errors</h4>
+Error values in this category shall indicate a security error. This category
+shall include one of the following specific error values:
+<blockquote>
+<li>
+generic - This is a general purpose value that can be used when the server
+is unable to be any more specific about the cause of the error.</li>
+</blockquote>
+
+<ul>
+<ul>
+<li>
+sequenceNumberViolated - Indicates that the server has detected an error
+in the operation’s message sequence number.</li>
+
+<li>
+timeStampViolated - Indicates that the server has detected an error in
+the operation’s time stamp.</li>
+
+<li>
+securityInfoViolated - Indicates that the server has detected an error
+in the operation’s security data.</li>
+</ul>
+</ul>
+
+<h4>
+12.2.14.3 State Incompatibility Errors</h4>
+Error values in this category shall indicate that the service request was
+not compatible with the condition of a related CSTA object. This category
+shall include one of the following specific error values:
+<blockquote>
+<li>
+generic - This is a general purpose value that can be used when the server
+is unable to be any more specific about the cause of the error.</li>
+</blockquote>
+
+<blockquote>
+<blockquote>
+<li>
+invalidObjectState - An object (device, connection, call, message) is in
+an incorrect state for the service. This error value may be used when the
+server cannot be any more specific.</li>
+</blockquote>
+</blockquote>
+
+<ul>
+<ul>
+<ul>
+<li>
+invalidDeviceState - A device object is in an incorrect state for the service
+request.</li>
+
+<li>
+connectedCallExists - A physical element is already associated with another
+connection in the connected state.</li>
+
+<li>
+invalidActiveDeviceState - The device in activeCall or callToBePickedUp
+connection is not in the correct state.</li>
+
+<li>
+invalidCalledDeviceState - The device in the calledDevice connection is
+not in the correct state.</li>
+
+<li>
+invalidCallingDeviceState - The device in the callingDevice connection
+is not in the correct state.</li>
+
+<li>
+invalidCallToParkDeviceState - The device in the callToPark connection
+is not in the correct state.</li>
+
+<li>
+invalidDestinationDeviceState - The newDestination device is not in the
+correct state.</li>
+
+<li>
+invalidDivertingDeviceState - The diverting device is not in a correct
+state.</li>
+
+<li>
+invalidHeldDeviceState - The device in heldCall connection is not in the
+correct state.</li>
+
+<li>
+invalidParkToDeviceState - The parkTo device is not in the correct state.</li>
+</ul>
+
+<li>
+invalidConnectionState - A connection object is in an incorrect state for
+the service request.</li>
+
+<ul>
+<li>
+invalidActiveConnectionState - The activeCall connection is not in the
+correct state.</li>
+
+<li>
+invalidConnectionIdentifierForActiveCall - A Connection Identifier specified
+as the activeCall in the service request is not in the correct state.</li>
+
+<li>
+invalidHeldConnectionState - The heldCall connection is not in the correct
+state.</li>
+
+<li>
+noActiveCall - The service request operates on an active call, but there
+was no active call.</li>
+
+<li>
+noCallToAnswer - There is no call active for the connection identifier
+specified as the callToBeAnswered.</li>
+
+<li>
+noCallToClear - There is no call associated with the connection identifier
+of the Clear Call request.</li>
+
+<li>
+noCallToComplete - There is no call active for the connection Identifier
+specified as the callToBeCompleted.</li>
+
+<li>
+noConnectionToClear - There is no connection for the connection identifier
+specified as the connectionToBeCleared.</li>
+
+<li>
+noHeldCall - The service request operates on a held call, but the specified
+call was not in the Hold state.</li>
+</ul>
+
+<li>
+incorrectMessageState - A message object is in an incorrect state for the
+service.</li>
+
+<ul>
+<li>
+beginningOfMessage - The message pointer is at the beginning of the message.</li>
+
+<li>
+endOfMessage - The message pointer is at the end of the message.</li>
+
+<li>
+messageSuspended - The specified message is already suspended on the same
+Connection.</li>
+
+<li>
+notAbleToPlay - The specified message exists, but cannot be played.</li>
+
+<li>
+notAbleToResume - The specified message cannot be resumed.</li>
+</ul>
+</ul>
+</ul>
+
+<h4>
+12.2.14.4 System Resource Availability Errors</h4>
+Error values in this category shall indicate that the service request could
+not be fulfilled because of a lack of system resources within the serving
+sub-domain. This category shall include one of the following specific error
+values:
+<blockquote>
+<li>
+generic - This is a general purpose value that can be used when the server
+is unable to be any more specific about the cause of the error.</li>
+</blockquote>
+
+<blockquote>
+<blockquote>
+<li>
+resourceBusy - The service is supported by the server, but is unavailable
+due to a resource that is busy.</li>
+</blockquote>
+</blockquote>
+
+<blockquote>
+<blockquote>
+<blockquote>
+<li>
+internalResourceBusy - An internal resource is in use.</li>
+</blockquote>
+</blockquote>
+</blockquote>
+
+<ul>
+<ul>
+<ul>
+<ul>
+<li>
+classifierBusy - All available classifiers are in use.</li>
+
+<li>
+noMediaChannelsAvailable - There are no available media stream channels
+to complete the request.</li>
+
+<ul>
+<li>
+5 channelsInUseForBridgedDevices - All applicable media stream channels
+are in use by other devices associated in a bridged device configuration.</li>
+
+<li>
+5 channelsInUseForData - All applicable media stream channels are in use
+for digital data connections.</li>
+</ul>
+
+<li>
+toneDetectorBusy - All available tone detectors are in use.</li>
+
+<li>
+toneGeneratorBusy - All available tone generators are in use.</li>
+</ul>
+
+<li>
+networkBusy - The server sub-domain is busy.</li>
+</ul>
+
+<li>
+resourceOutOfService - The service is supported by the server, but is unavailable
+due to a resource that is out of service.</li>
+
+<ul>
+<li>
+deviceOutOfService - A device that is needed to carry out the service is
+out of service.</li>
+</ul>
+</ul>
+</ul>
+
+<ul>
+<ul>
+<ul>
+<ul>
+<li>
+activeDeviceOutOfService - The device specified in activeCall connection
+is out of service.</li>
+
+<li>
+calledDeviceOutOfService - The device specified in the calledDevice connection
+is out of service.</li>
+
+<li>
+callingDeviceOutOfService - The device specified in the callingDevice connection
+is out of service.</li>
+
+<li>
+callToParkDeviceOutOfService - The device specified in callToPark connection
+is out of service.</li>
+
+<li>
+destinationDeviceOutOfService - The newDestination device is out of service.</li>
+
+<li>
+divertingDeviceOutOfService - The device specified as the diverting device
+is out of service.</li>
+
+<li>
+heldDeviceOutOfService- The device specified in heldCall connection is
+out of service.</li>
+
+<li>
+parkToDeviceOutOfService - The device specified in parkTo is out of service.</li>
+
+<li>
+pickupDeviceOutOfService - The device in callToBePickedUp is out of service.</li>
+
+<li>
+divertingDeviceOutOfService - The device specified as the diverting device
+is out of service.</li>
+</ul>
+
+<li>
+networkOutOfService - The server sub-domain is Out Of Service.</li>
+
+<li>
+otherResourceOutOfService - Some resource needed to carry out the service
+other than the above is out of service.</li>
+</ul>
+
+<li>
+resourceLimitExceeded - The service is supported by the server, but is
+unavailable because it would exceed the internal usage limit of the resource.</li>
+
+<ul>
+<li>
+overallMonitorLimitExceeded - The service request would exceed a switching
+function limit on the number of monitors (either an overall limit on the
+aggregate number of monitors or a limit on the number of monitors of different
+types (device-type, call-type) or some combination of the two).</li>
+
+<li>
+conferenceMemberLimitExceeded - The requested service would exceed the
+server’s limit on the number of members of a conference.</li>
+
+<li>
+registrationLimitExceeded - This service would exceed the switching function’s
+maximum number of registrations.</li>
+</ul>
+</ul>
+</ul>
+
+<h4>
+12.2.14.5 Subscribed Resource Availability Errors</h4>
+Error values in this category shall indicate that the service request could
+not be fulfilled because a required resource must be purchased or contracted
+by the client system. This category shall include one of the following
+specific error values:
+<blockquote>
+<li>
+generic - This is a general purpose value to be used when the server is
+unable to be any more specific about the cause of the error.</li>
+</blockquote>
+
+<ul>
+<ul>
+<li>
+objectMonitorLimitExceeded - The service request would exceed the server’s
+limit of monitors for the specified object.</li>
+
+<li>
+trunkLimitExceeded - The service request would exceed the server’s limit
+of trunks.</li>
+
+<li>
+outstandingRequestsLimitExceeded - The service request would exceed the
+servers’s limit on the number of outstanding service requests.</li>
+
+<li>
+objectRegistrationLimitExceeded - This service request would exceed the
+switching function’s limit on the number of registrations for this device.</li>
+</ul>
+</ul>
+
+<h4>
+12.2.14.6 Performance Management Errors</h4>
+Error values in this category shall indicate that an error has been returned
+as a performance management mechanism. This category shall include one
+of the following specific error values:
+<blockquote>
+<li>
+generic - This is a general purpose value to be used when the server is
+unable to be any more specific about the cause of the error.</li>
+
+<blockquote>
+<li>
+performanceLimitExceeded - A performance limit has been exceeded.</li>
+</blockquote>
+</blockquote>
+
+<h4>
+12.2.14.7 Private Data Information Errors</h4>
+Error values in this category shall indicate an error in the CSTA Private
+Data Information. The reason(s) why the Private Data Information is incorrect
+is not relevant to this Standard. This category shall include the following
+specific error value:
+<ul>
+<li>
+cSTAPrivateDataInfoError - An error occurred in the privateData parameter.
+The reason for this error is implementation specific.</li>
+</ul>
+
+<h4>
+12.2.14.8 Unspecified Errors</h4>
+Error values in this category shall indicate that the error did not belong
+to any of the other error value categories. This category shall include
+the following error value:
+<ul>
+<li>
+unspecifiedError - Some error other than those covered by the error categories
+has occurred or server cannot determine the category of the error.</li>
+</ul>
+
+</body>
+</html>

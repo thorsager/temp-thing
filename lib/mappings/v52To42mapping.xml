@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mapping>
+
+    <!-- Include XSD changes between 6.1 and 5.2 -->
+    <include href="v61To52mapping.xml" /> 
+
+    <class name="com.avaya.csta.binding.GetDeviceId" auto-complete="false">
+        <description>Default mapping for class com.avaya.csta.binding.GetDeviceId</description>
+        <map-to xml="GetDeviceId" ns-uri="http://www.avaya.com/csta"/>
+        <field name="deviceInstance" type="com.avaya.csta.binding.types.DeviceInstance"
+            required="false" direct="false" transient="true">
+            <bind-xml name="deviceInstance" node="element" reference="false"/>
+        </field>
+        <field name="controllableByOtherSessions" type="boolean"
+            required="false" direct="false" transient="false">
+            <bind-xml name="controllableByOtherSessions" node="element" reference="false"/>
+        </field>
+        <field name="switchName" type="string" required="false"
+            direct="false" transient="false">
+            <bind-xml name="switchName" node="element" reference="false"/>
+        </field>
+        <field name="switchIPInterface" type="string" required="false"
+            direct="false" transient="false">
+            <bind-xml name="switchIPInterface" node="element" reference="false"/>
+        </field>
+        <field name="extension" type="string" required="false"
+            direct="false" transient="false">
+            <bind-xml name="extension" node="element" reference="false"/>
+        </field>
+    </class>
+
+    <class name="com.avaya.csta.binding.GetThirdPartyDeviceId" auto-complete="false">
+        <description>Default mapping for class com.avaya.csta.binding.GetThirdPartyDeviceId</description>
+        <map-to xml="GetThirdPartyDeviceId" ns-uri="http://www.avaya.com/csta"/>
+        <field name="switchName" type="string" required="false"
+            direct="false" transient="false">
+            <bind-xml name="switchName" node="element" reference="false"/>
+        </field>
+        <field name="deviceInstance" type="com.avaya.csta.binding.types.DeviceInstance"
+            required="false" direct="false" transient="true">
+            <bind-xml name="deviceInstance" node="element" reference="false"/>
+        </field>
+        <field name="extension" type="string" required="false"
+            direct="false" transient="false">
+            <bind-xml name="extension" node="element" reference="false"/>
+        </field>
+    </class>
+    <class name="com.avaya.csta.binding.AvayaEvents" auto-complete="false">
+        <description>Default mapping for class com.avaya.csta.binding.AvayaEvents</description>
+        <map-to xml="AvayaEvents" ns-uri="http://www.avaya.com/csta"/>
+        <field name="logicalDeviceFeaturePrivate"
+            type="com.avaya.csta.binding.LogicalDeviceFeaturePrivateEvents"
+            required="false" direct="false" transient="true">
+            <bind-xml name="logicalDeviceFeaturePrivate" node="element" reference="false"/>
+        </field>
+        <field name="callControlPrivate"
+            type="com.avaya.csta.binding.CallControlPrivateEvents"
+            required="false" direct="false" transient="true">
+            <bind-xml name="callControl-private" node="element" reference="false"/>
+        </field>
+        <field name="toneDetection"
+            type="com.avaya.csta.binding.ToneDetectionEvents"
+            required="false" direct="false" transient="false">
+            <bind-xml name="toneDetection" node="element" reference="false"/>
+        </field>
+        <field name="callInformation"
+            type="com.avaya.csta.binding.CallInformationEvents"
+            required="false" direct="false" transient="false">
+            <bind-xml name="callInformation" node="element" reference="false"/>
+        </field>
+        <field name="mediaControl"
+            type="com.avaya.csta.binding.MediaControlEvents"
+            required="false" direct="false" transient="false">
+            <bind-xml name="mediaControl" node="element" reference="false"/>
+        </field>
+        <field name="physicalDeviceFeaturesPrivateEvents"
+            type="com.avaya.csta.binding.PhysicalDeviceFeaturesPrivateEvents"
+            required="false" direct="false" transient="false">
+            <bind-xml name="physicalDeviceFeaturesPrivateEvents"
+                node="element" reference="false"/>
+        </field>
+        <field name="terminal"
+            type="com.avaya.csta.binding.TerminalEvents"
+            required="false" direct="false" transient="false">
+            <bind-xml name="terminal" node="element" reference="false"/>
+        </field>
+        <field name="deviceServices"
+            type="com.avaya.csta.binding.DeviceServicesEvents"
+            required="false" direct="false" transient="false">
+            <bind-xml name="deviceServices" node="element" reference="false"/>
+        </field>
+        <field name="SIPHeader"
+            type="com.avaya.csta.binding.SIPHeaderEvents"
+            required="false" direct="false" transient="false">
+            <bind-xml name="sIPHeader" node="element" reference="false"/>
+        </field>
+        <field name="toneCollection"
+            type="com.avaya.csta.binding.ToneCollectionEvents"
+            required="false" direct="false" transient="false">
+            <bind-xml name="toneCollection" node="element" reference="false"/>
+        </field>
+        <field name="invertFilter" type="boolean" required="false"
+            direct="false" transient="false">
+            <bind-xml name="invertFilter" node="element" reference="false"/>
+        </field>
+        <field name="terminalUnregisteredEvent"
+            type="com.avaya.csta.binding.RegisterTerminalEventsFilter"
+            required="false" direct="false" transient="false">
+            <bind-xml name="terminalUnregisteredEvent" node="element" reference="false"/>
+        </field>
+    </class>
+
+
+</mapping>
