@@ -102,6 +102,7 @@ public class TutorialMediaStack {
     private String callServer;
     private String extension;
     private String password;
+    private String localAddress;
     private String codec;
     private String encryption;
     private String direction;
@@ -123,6 +124,7 @@ public class TutorialMediaStack {
     private static final String PROP_FILE_PASSWORD = "cmapi1.password";
     private static final String PROP_FILE_SERVER_PORT = "cmapi1.server_port";
     private static final String PROP_FILE_SECURE = "cmapi1.secure";
+    private static final String PROP_FILE_LOCAL_RTP_ADDR = "com.avaya.mvcs.media.MediaManagerServices.local_ipaddress_1";
     
     // These fields may be used to change the default port range for the audio stream.
     // Default port range is 40000 - 47999, and the client-media-stack will pick two consecutive ports
@@ -216,6 +218,7 @@ public class TutorialMediaStack {
         cmapiServerIp = appProp.getProperty(PROP_FILE_SERVER_IP);
         cmapiUsername = appProp.getProperty(PROP_FILE_USERNAME);
         cmapiPassword = appProp.getProperty(PROP_FILE_PASSWORD);
+        localAddress = appProp.getProperty(PROP_FILE_LOCAL_RTP_ADDR);
         // If there is no entry then we will assume the connection is secure.
         cmapiServerPort= appProp.getProperty(PROP_FILE_SERVER_PORT, "4722");
         cmapiSecure= appProp.getProperty(PROP_FILE_SECURE, "true");
@@ -228,6 +231,7 @@ public class TutorialMediaStack {
         cmapiKeyStorePassword = appProp.getProperty(CmapiKeys.KEY_STORE_PASSWORD);
         isValidPeer = appProp.getProperty(CmapiKeys.VALIDATE_SERVER_CERTIFICATE);
         hostnameValidation = appProp.getProperty(CmapiKeys.VALIDATE_SERVER_CERTIFICATE_HOSTNAME);
+
 
         Properties spProp = new Properties();
         spProp.setProperty(CmapiKeys.SESSION_DURATION_TIMER, "240");
@@ -301,6 +305,7 @@ public class TutorialMediaStack {
         Properties mediaProp = new Properties();
         mediaProp.setProperty(PROP_FILE_UDP_MIN, local_udpport_min);
         mediaProp.setProperty(PROP_FILE_UDP_MAX, local_udpport_max);
+        mediaProp.setProperty(PROP_FILE_LOCAL_RTP_ADDR, localAddress);
         
         // Now create the media factory. Note: the factory only needs to be created once.
         // Multiple mediaSessions and audio streams (if needed) can be created from one factory.
